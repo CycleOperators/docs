@@ -6,11 +6,14 @@ sidebar_position: 1
 
 CycleOps allows you to automate your cycles management by creating rules that determine when your canisters should be topped up, but what should the parameters of your rule be, and generally how should one think about this problem?
 
-# Easy Mode: Use a CycleOps Preset
+# Easy Mode: Use one of these presets
 
-To make things simple for you, CycleOps offers presets that are geared towards different types of projects. You can choose from any of these presets when creating a new top-up rule, or when editing an existing rule. Here a few light suggestions that we provide, and when you should consider using each of them:
+To make things simple for you, Below are a few topup rule suggestions that are geared towards different types of projects. You can choose from any of these presets when creating a new top-up rule, or when editing an existing rule.
 
-## Hobby Project 🧑‍💻
+> **Caveat:**
+> Once you're up an running for a few days, CycleOps has enough data to provide a freezing estimate, or how long your canister will run before freezing 
+
+### Hobby Project 🧑‍💻
 
 **If below 1T, top-up with 0.5T.**
 
@@ -34,10 +37,25 @@ Token canisters should be considered high-stakes contracts. They can generally b
 
 Factory canisters can burn large amounts of cycles in a short amount of time depending on the use case. For this reason, we recommend setting both high thresholds and top-up amounts to ensure you don’t fall behind easily. Reach out to us via our [Discord](https://discord.gg/AWaab4FD6V) or at [contact@cycleops.dev](mailto:contact@cycleops.dev) if you fall into this category and have any questions.
 
-# Things to Consider
+## Additional Considerations
 
 These presets are intended to give you jumping-off points to get started with, but eventually you will probably want to fine tune your rules 🔧 to meet your specific needs. Here are some things to keep in mind.
 
+## Using Burn Rate and Freeze Estimate to Set a Topup Rule
+Once you're up and running for a few days, CycleOps has enough data to estimate what your cycle burn rate is, and how long your canister will run before freezing 🥶. These estimates can help you set your top up rule.
+
+For example:
+> If canister A has a:
+> - cycles balance of 2 trillion cycles
+> - freezing threshold of 7 billion cycles
+> - burn rate of 400 Billion cycles/day 
+>
+> We recommend that your raise your top up threshold to ensure this canister always stays topped up with at least 30 days worth of cycles above that canister's freezing threshold. This ensures your canister has enough buffer should cycle usage spike, or you need to add more ICP to your CycleOps account. We also recommend that your top ups last your canister at least 7 days. So in this case, the recommended minimal top up rule would be:
+> 
+> Topup threshold = 7 billion + 30 days * (400 billion cycles/day) = 12 trillion cycles
+> Topup amount = 7 days * (400 billion cycles per day) = 2.8 trillion cycles
+
+<!-- TODO: put back in if we add this to the UI
 ## Top-Up Methods
 
 When creating a top-up rule, you can specify that a canister should be sent a specific quantity of cycles, or that it should be sent enough cycles such that it tops up to an approximate cycles balance.
@@ -47,6 +65,7 @@ When creating or editing a top-up rule, select “by amount” to create a rule 
 Alternatively you might create a “to balance” top-up rule (feature coming soon), which sends enough cycles such that the canister will be restored to a certain balance by receiving the top-up. For example, a rule to “top up to 2T cycles when below 1T cycles” will send ~1T cycles if your canister falls below 1T.
 
 ## Configure Your Freezing Threshold
+-->
 
 Don’t forget that the freezing threshold on your canister provides the invaluable buffer between loss of functionality and total state deletion. If you have a big freezing threshold, of course you should make sure that your top up threshold is higher than your freezing threshold, or your rule won’t be triggered until it’s too late and your canister has frozen! 🥶
 

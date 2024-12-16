@@ -53,7 +53,7 @@ The CycleOps Balance Checker is black-holed and can only check the status of can
 
 Adding an SNS can take 10-20 seconds, so after clicking "Add canisters", sit back and relax 🏝️.
 
-**_Note:_** Adding SNS canisters currently adds them to your CycleOps account with a default [top up rule](https://www.notion.so/Best-Practices-for-Top-up-Rules-e3e9458ec96f46129533f58016f66f6e?pvs=21) of "when below 10 trillion cycles, top up with 5 trillion cycles". After several days of monitoring, we recommend checking back in 👀 with your CycleOps dashboard and adjusting this top up rule based on the per-canister burn rate 🔥 and time to freeze 🥶 estimate metrics that CycleOps provides.
+**_Note:_** Adding SNS canisters currently adds them to your CycleOps account with a default [top up rule](./basics/topup-rules) of "when below 10 trillion cycles, top up with 5 trillion cycles". After several days of monitoring, we recommend checking back in 👀 with your CycleOps dashboard and adjusting this top up rule based on the per-canister burn rate 🔥 and time to freeze 🥶 estimate metrics that CycleOps provides.
 
 ![SNS Selection](./img/sns.png)
 
@@ -64,7 +64,7 @@ Adding an SNS can take 10-20 seconds, so after clicking "Add canisters", sit bac
 
 On clicking save, a confirmation email titled "[CycleOps] Please verify your email address" will be sent out to the address provided. Keep this page open, and navigate to the email.
 
-    ![Notification Setup](./img/notificatin.png)
+    ![Notification Setup](./img/notification.png)
 
     Inside the email is a confirmation link, which will complete the email verification process.
 

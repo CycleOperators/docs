@@ -28,13 +28,13 @@ or
 
 ## Withdrawing Funds
 
-You can withdraw any unspent funds from your account at any time using the webapp: [cycleops.dev/billing](https://cycleops.dev/billing). Withdrawals will currently be sent to the wallet address of your choosing.
+You can withdraw any unspent funds from your account at any time using the webapp: [cycleops.dev/app/personal/billing](https://cycleops.dev/app/personal/billing). Withdrawals will currently be sent to the wallet address of your choosing.
 
 ![withdraw.png](./img/withdraw.png)
 
 ## Keep It Topped!
 
-If there are insufficient funds to pay for the cycles required by your canisters, the top-up will fail. We will send as many cycles as your top-up account will cover, so in fact a partial top-up will occur.
+If there are insufficient funds to pay for the cycles required by your canisters, the top-up will fail.
 
 To help you stay on top of things, notifications can be configured to be let you know of top-up failures, or when your top-up account balance starts to get low. Your notification settings can be managed in the webapp: [cycleops.dev/app/personal/settings](https://cycleops.dev/app/personal/settings).
 
@@ -53,4 +53,4 @@ Your top-up account does not change, so it’s easy to identify in your accounti
   - Cycles sent
   - Cost in ICP (or Cycles, if your payment method uses the cycles ledger)
 
-You can access your transaction logs via the “billing” tab screen of https://cycleops.dev/app/personal
+You can access your transaction logs via the “billing” tab screen of https://cycleops.dev/app/personal.

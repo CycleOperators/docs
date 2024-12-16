@@ -1,18 +1,18 @@
 ---
-sidebar_position: 5
+sidebar_position: 3
 ---
 
 # Teams Management
 
 Team member management in CycleOps relies on your user principal, which is like a unique user id. In short, the individual who wishes to join a team must send their principal to the team admin 👩‍💻, who can then add them to the team.
 
-# Joining A Team
+## Joining A Team
 
 You’ll need a CycleOps account, so set one up if you haven’t already by heading to [cycleops.dev](http://cycleops.dev) and connecting your Internet Identity.
 
 Send a message on your favorite comm’s app to the team admin and let them know you’ll be sending them your CycleOps principal in just a minute ⏰ (and maybe give them a compliment while you’re at it? 😅)
 
-## Locating Your Principal
+### Locating Your User Principal
 
 If you created a new account (by logging in to CycleOps), first select the option to “join an existing team” during the onboarding process. This will present you with a screen like the one below, where you can copy your principal with a simple click.
 
@@ -22,7 +22,7 @@ You can also always find your principal in the dropdown at the top right of the 
 
 ![principal](./img/principal.png)
 
-# Adding A Team Member
+## Adding A Team Member
 
 To add an individual to your team, you’ll need their CycleOps principal. If they’re not sure how to do that, share a link to this documentation with them
 
@@ -51,7 +51,7 @@ In this dialog, you can paste in the individual’s principal, and determine whi
 
 ![add member dialog](./img/add-member-dialog.png)
 
-# Creating a Team
+## Creating a Team
 
 Of course, the first order of business is create a team if haven’t already. You can create a team by opening the account dropdown in the top left of the app and selecting “Create Team”.
 

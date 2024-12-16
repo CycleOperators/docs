@@ -1,17 +1,15 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 ---
 
-# Cycles Ledger
+# Bring your own Cycles
 
-Dfinity has released [the new cycles ledger canister](https://forum.dfinity.org/t/improving-the-cycle-management-experience/19895), enabling principals to hold cycles and greatly increasing the utility of Cycles as a token. CycleOps has integrated the new token as a payment method that customers can select on our platform.
+Dfinity has released [the new cycles ledger canister](https://forum.dfinity.org/t/improving-the-cycle-management-experience/19895), enabling principals to hold cycles and greatly increasing the utility of Cycles as a token. 
+CycleOps has integrated the new cycle ledger as a payment method, allowing you to “bring your own cycles” and put them to work instead of relying on CycleOps to buy them on your behalf.
 
-This article will introduce you to using the cycles ledger, teach you how to migrate your cycles to the ledger from other sources, and show you how to setup your CycleOps account to pay with your own cycles.
+This article will introduce you to using the cycles ledger, teach you how to migrate your cycles to the ledger from other sources, and show you how to set up your CycleOps account to pay with your own cycles.
 
-### **Bring Your Own Cycles!**
-
-This new payment method essentially allows you to “bring your own cycles” instead of relying on CycleOps to buy them on your behalf. This allows customers who have been holding their own cycles to put them to work using our platform.
-
+### Prerequisites
 <aside>
 **DFX 0.18.0 Recommended**
 This article assumes you are using DFX version 0.18.0 or greater. You can get by with earlier versions, but 0.18.0 makes things a little easier!
@@ -23,6 +21,10 @@ This article assumes you are using DFX version 0.18.0 or greater. You can get by
 ## Getting Started
 
 The steps to setup the cycles ledger as your new payment method varies depending on where you’re holding your cycles. The first step is to move your cycles from wherever they are now to their new home on the cycles ledger canister. Follow the table of contents below to find the right jumping off point for you.
+
+- [Migrating Cycles from XTC to the new Dfinity Cycles Ledger](#migrating-cycles-from-xtc-to-the-new-dfinity-cycles-ledger)
+- [Migrating from Cycles Wallet to the new Dfinity Cycles Ledger](#migrating-from-cycles-wallet-to-the-new-dfinity-cycles-ledger)
+- [Approving CycleOps To Top-Up With Your Cycles on the Cycle Ledger](#approving-cycleops-to-top-up-with-your-cycles-on-the-cycle-ledger)
 
 ---
 
