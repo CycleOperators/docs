@@ -61,8 +61,8 @@ const config: Config = {
       respectPrefersColorScheme: true,
       disableSwitch: false,
     },
-    // Replace with your project's social card
-    image: "img/docusaurus-social-card.jpg",
+    // Open Graph and Twitter card images.
+    image: "img/cycleops.png",
     navbar: {
       title: "CycleOps",
       logo: {
