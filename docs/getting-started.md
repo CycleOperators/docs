@@ -40,7 +40,15 @@ First, let's head over to https://cycleops.dev/. Click the "Connect" button at t
 4. **(Blackhole Monitoring only) Grant Access to Balance Checker** 🤝
    \*\*\*\*This step is asking you to provide the CycleOps Balance Checker access to read your canister's cycles balance.
 
-The CycleOps Balance Checker is black-holed and can only check the status of canisters of which it is controller, but don't take our word for it ❗ - the code is public at https://github.com/CycleOperators/BalanceCheckerVerification, and you can verify the blackhole status and wasm hash running on main net by either: 1. Using the [GitHub Action verification instructions](https://github.com/CycleOperators/BalanceCheckerVerification#easy-mode-use-a-gh-action) to fork the repository and run a GitHub action which verifies the controllers and wasm hash of the Balance Checker canister. 2. (Mac only) Checking out the https://github.com/CycleOperators/BalanceCheckerVerification repository locally and running `npm run verify-blackhole`. (For local verification, note that the blackhole was built with dfx 0.13.1).
+The CycleOps Balance Checker is black-holed and can only check the status of canisters of which it is controller, but don't take our word for it, as:
+- the code is public at https://github.com/CycleOperators/BalanceCheckerVerification
+- you can verify the blackhole status and wasm hash running on main net by either:
+   1. Using the [GitHub Action verification instructions](https://github.com/CycleOperators/BalanceCheckerVerification/tree/main/blackholes/v2#easy-mode-use-a-gh-action) to fork the repository and run a GitHub action which verifies the controllers and wasm hash of the Balance Checker canister.
+   
+   or
+
+
+   2. (Mac only) Checking out the https://github.com/CycleOperators/BalanceCheckerVerification repository locally and from the blackhole version of your choosing running `npm run verify-blackhole`. (For local verification, note the dfx version that the blackhole was built with).
 
     **Before continuing with verification**, if you run into any issues or are unsure about adding the Balance Checker as a controller, please reach out to us at [contact@cycleops.dev](mailto:contact@cycleops.dev).
 
