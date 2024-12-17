@@ -26,6 +26,16 @@ const config: Config = {
     locales: ["en"],
   },
 
+  plugins: [
+    [
+      'docusaurus-biel',{
+        project: 'o750bbke2o',
+        headerTitle: 'Biel.ai chatbot',
+        version: 'latest'
+      }
+    ]
+  ],
+
   presets: [
     [
       "classic",
@@ -64,11 +74,6 @@ const config: Config = {
           sidebarId: "tutorialSidebar",
           position: "left",
           label: "Docs",
-        },
-        {
-          href: "https://github.com/facebook/docusaurus",
-          label: "GitHub",
-          position: "right",
         },
       ],
     },
