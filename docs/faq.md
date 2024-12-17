@@ -8,6 +8,8 @@ sidebar_position: 5
 
 ## Questions
 
+- [What services does CycleOps provide?](#what-services-does-cycleops-provide)
+- [How long does it take for me to set up canister monitoring with CycleOps.](#how-long-does-it-take-for-me-to-set-up-canister-monitoring-with-cycleops)
 - [How often do you check cycles balances?](#how-often-do-you-check-cycles-balances)
 - [What does CycleOps cost?](#what-does-cycleops-cost)
 - [Are there options to monitor my canister other than through the CycleOps blackhole?](#are-there-options-to-monitor-my-canister-other-than-through-the-cycleops-blackhole)
@@ -18,11 +20,25 @@ sidebar_position: 5
 - [I'm unable to add an NNS Monitored canister, why?](#im-unable-to-add-an-nns-monitored-canister-why)
 - [My canister is showing up as pending, what does that mean?](#my-canister-is-showing-up-as-pending-what-does-that-mean)
 
+### What services does CycleOps provide?
+CycleOps is proactive, automated, no-code monitoring for canister applications on the Internet Computer.
+
+Running for 20 months with zero downtime, CycleOps provides reliable and comprehensive canister monitoring, including:
+- Automated cycle topups ⚡️ - keeping your canisters running and your customers happy
+- Email notifications ✉️ - notifying you in a variety of scenarios including when your canisters are topped up or when your account balance runs low
+- Historical canister metrics and charts 📊
+- Proactive alerting, such as canister memory threshold alerts 🚨
+- Project analysis with project groups 📂 and canister tags 🏷️
+
+### How long does it take for me to set up canister monitoring with CycleOps.
+
+CycleOps takes [less than 10 minutes ⏳ to set up](./getting-started.md) get started, and doesn't require adding a single line of code to your canister. Setting up subsequent canisters with monitoring takes less than a minute.
+
 ### How often do you check cycles balances?
 
 Currently CycleOps checks cycles balances once every **6 hours** and performs top-ups accordingly. 
 
-Want more frequent top-ups? Let us know at [contact@cycleops.dev](mailto:contact@cycleops.dev) or on [Twitter](https://twitter.com/CycleOps).
+Want more frequent top-ups? Let us know at [contact@cycleops.dev](mailto:contact@cycleops.dev) or on [X](https://x.com/CycleOps).
 
 ### What does CycleOps cost?
 
@@ -39,13 +55,13 @@ If you pay for top-ups in:
 2. **(New) NNS Monitoring** - requires that you add the NNS Root `r7inp-6aaaa-aaaaa-aaabq-cai` as a controller of your canister. Choosing this option means your metric data is public as anyone can monitor it through the NNS Root.
 3. **(New) SNS Monitoring** - allows you to monitor canisters belonging to any SNS.
 
+![Monitoring Mechanisms](./img/monitoring.png)
+
 ### Why do I need to add the CycleOps Balance Checker as a controller of my canister in order to have my canister cycles balance monitored?
 
 CycleOps provides a **no-code integration** for monitoring your canisters. This means that you do not need to add a single line of code to your canister or application.
 
-Update: As of July 2024, CycleOps now provides additional no-code monitoring options for developer teams depending on the type of canister you want to monitor, preferred monitoring mechanism, and visibility of metric data (public or private).
-
-![Screenshot 2024-07-17 at 22.11.42.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/7c49d428-0791-4140-9307-95758a4579f0/fcb41d98-41e3-4592-a66b-52698ef6bc33/Screenshot_2024-07-17_at_22.11.42.png)
+Update: As of July 2024, CycleOps now provides [additional no-code monitoring options](#are-there-options-to-monitor-my-canister-other-than-through-the-cycleops-blackhole) for developer teams depending on the type of canister you want to monitor, preferred monitoring mechanism, and visibility of metric data (public or private).
 
 For private canister metric monitoring, the CycleOps Balance Checker calls the Management Canister’s [canister_status](https://internetcomputer.org/docs/current/references/ic-interface-spec/#canister-status) API, which allows only the controller of a canister to call it. 
 
