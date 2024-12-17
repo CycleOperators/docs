@@ -29,11 +29,12 @@ const config: Config = {
   plugins: [
     [
       'docusaurus-biel',{
+        enable: false,
         project: 'o750bbke2o',
         headerTitle: 'Biel.ai chatbot',
         version: 'latest'
       }
-    ]
+    ],
   ],
 
   presets: [
@@ -78,6 +79,7 @@ const config: Config = {
       ],
     },
   } satisfies Preset.ThemeConfig,
+
 };
 
 export default config;

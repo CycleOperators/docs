@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # FAQ
 
-(Have a question that isn’t answered here? Let us know at [contact@cycleops.dev](mailto:contact@cycleops.dev))
+(Have a question that isn’t answered here? Let us know via email at [contact@cycleops.dev](mailto:contact@cycleops.dev)), or [@CycleOps](https://x.com/cycleops) on X
 
 ## Questions
 
@@ -19,6 +19,7 @@ sidebar_position: 5
 - [I’d like to integrate with CycleOps in a different way. Can I add an endpoint that CycleOps can monitor?](#id-like-to-integrate-with-cycleops-in-a-different-way-can-i-add-an-endpoint-that-cycleops-can-monitor)
 - [I'm unable to add an NNS Monitored canister, why?](#im-unable-to-add-an-nns-monitored-canister-why)
 - [My canister is showing up as pending, what does that mean?](#my-canister-is-showing-up-as-pending-what-does-that-mean)
+- [Why hasn't CycleOps automatically topped up my canister yet?](#why-hasnt-cycleops-automatically-topped-up-my-canister-yet)
 
 ### What services does CycleOps provide?
 CycleOps is proactive, automated, no-code monitoring for canister applications on the Internet Computer.
@@ -110,3 +111,11 @@ Adding an NNS monitored canister requires that you first add the NNS Root, [r7in
 This means that you have added a canister to your CycleOps account, but the monitoring mechanism the canister was added with (balance checker, nns, or sns root) is not controller of your canister.
 
 Pending canisters are not actively monitored by CycleOps, and do not receive automated topups, nor do they generate email alerts.
+
+### Why hasn't CycleOps automatically topped up my canister yet?
+
+Canisters may periodically show up as below their topup threshold for a number of reasons:
+
+1. If you don't have enough cycles to top up your canister, it won't be automatically topped up. Make sure your account is funded.
+2. Monitoring and top ups currently occur once every 6 hours. If you can't wait for the next monitoring and top up round to occur, you can execute a manual cycles topup at any time.
+3. CycleOps does not automatically top up "pending" canisters, as it doesn't have a way to record their cycle balances.
