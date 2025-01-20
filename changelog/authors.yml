@@ -1,0 +1,17 @@
+cycleops:
+  name: CycleOps Team
+  title: CycleOps Development Team
+  url: https://cycleops.dev
+  image_url: /img/cycleops.png
+
+jorgen:
+  name: Jorgen Hookham
+  title: Developer
+  url: https://github.com/jorgenhookham
+  image_url: /img/authors/jorgen.png
+
+byron:
+  name: Byron Becker
+  title: Developer
+  url: https://github.com/byron
+  image_url: PLACEHOLDER_URL # Add your avatar URL here

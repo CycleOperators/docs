@@ -28,12 +28,13 @@ const config: Config = {
 
   plugins: [
     [
-      'docusaurus-biel',{
+      "docusaurus-biel",
+      {
         enable: false,
-        project: 'o750bbke2o',
-        headerTitle: 'Biel.ai chatbot',
-        version: 'latest'
-      }
+        project: "o750bbke2o",
+        headerTitle: "Biel.ai chatbot",
+        version: "latest",
+      },
     ],
   ],
 
@@ -43,10 +44,23 @@ const config: Config = {
       {
         docs: {
           sidebarPath: "./sidebars.ts",
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+        },
+        blog: {
+          routeBasePath: "changelog",
+          path: "changelog",
+          blogTitle: "Changelog",
+          blogDescription:
+            "Keep up with the latest updates and improvements to CycleOps",
+          blogSidebarCount: "ALL",
+          blogSidebarTitle: "Posts",
+          showReadingTime: true,
+          feedOptions: {
+            type: "all",
+            title: "CycleOps Changelog",
+            description:
+              "Keep up with the latest updates and improvements to CycleOps",
+            copyright: `Copyright © ${new Date().getFullYear()} CycleOps`,
+          },
         },
         theme: {
           customCss: "./src/css/custom.css",
@@ -56,6 +70,13 @@ const config: Config = {
   ],
 
   themeConfig: {
+    metadata: [
+      {
+        name: "keywords",
+        content: "cycleops, changelog, updates, features, improvements",
+      },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
     colorMode: {
       defaultMode: "dark",
       respectPrefersColorScheme: true,
@@ -76,10 +97,14 @@ const config: Config = {
           position: "left",
           label: "Docs",
         },
+        {
+          to: "/changelog",
+          label: "Changelog",
+          position: "left",
+        },
       ],
     },
   } satisfies Preset.ThemeConfig,
-
 };
 
 export default config;

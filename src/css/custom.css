@@ -6,27 +6,109 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #171717;
+  --ifm-color-primary-dark: #141414;
+  --ifm-color-primary-darker: #111111;
+  --ifm-color-primary-darkest: #000000;
+  --ifm-color-primary-light: #1f1f1f;
+  --ifm-color-primary-lighter: #262626;
+  --ifm-color-primary-lightest: #2e2e2e;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-heading-color: #000000;
+  --ifm-text-color: #171717;
+  --ifm-navbar-padding-vertical: 1rem;
 }
 
 /* Dark mode with true black background */
 [data-theme="dark"] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  --ifm-color-primary: #ffffff;
+  --ifm-color-primary-dark: #e5e5e5;
+  --ifm-color-primary-darker: #d4d4d4;
+  --ifm-color-primary-darkest: #a3a3a3;
+  --ifm-color-primary-light: #ffffff;
+  --ifm-color-primary-lighter: #ffffff;
+  --ifm-color-primary-lightest: #ffffff;
   --ifm-background-color: #000000;
   --ifm-background-surface-color: #000000;
-  --docusaurus-highlighted-code-line-bg: rgba(66, 66, 66, 0.3);
+  --ifm-navbar-background-color: #000000;
+  --ifm-dropdown-background-color: #000000;
+  --ifm-card-background-color: #000000;
+  --ifm-footer-background-color: #000000;
+  --ifm-toc-border-color: #262626;
+  --ifm-color-emphasis-200: #262626;
+  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.05);
+  --ifm-heading-color: #ffffff;
+  --ifm-text-color: #f5f5f5;
+}
+
+/* Force true black in dark mode */
+[data-theme="dark"] .navbar,
+[data-theme="dark"] .main-wrapper,
+[data-theme="dark"] .footer {
+  background-color: #000000;
+}
+
+/* Enhance sidebar highlight contrast in dark mode */
+
+[data-theme="dark"] .menu__link:hover {
+  background-color: rgba(255, 255, 255, 0.075);
+}
+
+[data-theme="dark"] .menu__link--active {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Subtle dividers between sidebars */
+.theme-doc-sidebar-container {
+  border-right-color: rgba(0, 0, 0, 0.075) !important;
+}
+
+[data-theme="dark"] .theme-doc-sidebar-container {
+  border-right-color: rgba(255, 255, 255, 0.075) !important;
+}
+
+.menu {
+  padding: 0.5rem !important;
+}
+
+.table-of-contents__left-border {
+  border-left-color: rgba(0, 0, 0, 0.075) !important;
+}
+
+[data-theme="dark"] .table-of-contents__left-border {
+  border-left-color: rgba(255, 255, 255, 0.075) !important;
+}
+
+.navbar {
+  padding: 0 1rem;
+}
+
+/* Subtle navbar underline */
+[data-theme="dark"] .navbar {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.075);
+}
+
+.navbar__link:hover,
+.navbar__link--active {
+  padding: 0.5rem 0.75rem;
+  border-radius: 9999px;
+}
+
+.navbar__link--active {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.navbar__link:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Navbar active item pill */
+[data-theme="dark"] .navbar__link--active {
+  background-color: rgba(255, 255, 255, 0.075);
+}
+
+/* Hover state for navbar items */
+[data-theme="dark"] .navbar__link:hover {
+  background-color: rgba(255, 255, 255, 0.05);
 }
