@@ -1,13 +1,13 @@
 ---
-slug: introducing-changelog
-title: Introducing the CycleOps Changelog
+slug: compute-shortage
+title: Compute Shortage on ICP, Our Response
 authors: [jorgen]
-image: https://cdn.midjourney.com/98461a6e-1a8c-44f8-87cd-e8e9c13153a9/0_0.png
+image: https://cdn.midjourney.com/873b436f-c46f-471e-9b1a-3394629c5fb5/0_3.png
 ---
 
-![https://cdn.midjourney.com/98461a6e-1a8c-44f8-87cd-e8e9c13153a9/0_0.png](https://cdn.midjourney.com/98461a6e-1a8c-44f8-87cd-e8e9c13153a9/0_0.png)
+![https://cdn.midjourney.com/873b436f-c46f-471e-9b1a-3394629c5fb5/0_3.png](https://cdn.midjourney.com/873b436f-c46f-471e-9b1a-3394629c5fb5/0_3.png)
 
-We're excited to introduce the CycleOps Changelog – your go-to destination for staying up-to-date with all the latest updates, improvements, and new features in CycleOps. This space will keep you informed about everything from major feature releases to small but important improvements.
+Starting 16 hours ago, an unknown major cycles burner became active on the network, causing a shortage of compute. Here's how we're keeping your canisters online.
 
 <!-- truncate -->
 

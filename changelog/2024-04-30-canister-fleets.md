@@ -1,13 +1,13 @@
 ---
-slug: introducing-changelog
-title: Introducing the CycleOps Changelog
+slug: canister-fleets
+title: Canister Fleets Release
 authors: [jorgen]
-image: https://cdn.midjourney.com/98461a6e-1a8c-44f8-87cd-e8e9c13153a9/0_0.png
+image: https://cdn.midjourney.com/8d4ee58f-794e-4f64-b830-eddeff02ae7f/0_2.png
 ---
 
-![https://cdn.midjourney.com/98461a6e-1a8c-44f8-87cd-e8e9c13153a9/0_0.png](https://cdn.midjourney.com/98461a6e-1a8c-44f8-87cd-e8e9c13153a9/0_0.png)
+![https://cdn.midjourney.com/8d4ee58f-794e-4f64-b830-eddeff02ae7f/0_2.png](https://cdn.midjourney.com/8d4ee58f-794e-4f64-b830-eddeff02ae7f/0_2.png)
 
-We're excited to introduce the CycleOps Changelog – your go-to destination for staying up-to-date with all the latest updates, improvements, and new features in CycleOps. This space will keep you informed about everything from major feature releases to small but important improvements.
+Starting today it's easier than ever to manage a large fleet of canister smart contracts on ICP.
 
 <!-- truncate -->
 

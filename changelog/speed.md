@@ -1,13 +1,13 @@
 ---
-slug: introducing-changelog
-title: Introducing the CycleOps Changelog
+slug: speed
+title: Compete with web2 speed as a web3 app
 authors: [jorgen]
-image: https://cdn.midjourney.com/98461a6e-1a8c-44f8-87cd-e8e9c13153a9/0_0.png
+image: https://cdn.midjourney.com/0b3d804b-3430-4c18-ad30-d85bc1bbb4d0/0_0.png
 ---
 
-![https://cdn.midjourney.com/98461a6e-1a8c-44f8-87cd-e8e9c13153a9/0_0.png](https://cdn.midjourney.com/98461a6e-1a8c-44f8-87cd-e8e9c13153a9/0_0.png)
+![https://cdn.midjourney.com/0b3d804b-3430-4c18-ad30-d85bc1bbb4d0/0_0.png](https://cdn.midjourney.com/0b3d804b-3430-4c18-ad30-d85bc1bbb4d0/0_0.png)
 
-We're excited to introduce the CycleOps Changelog – your go-to destination for staying up-to-date with all the latest updates, improvements, and new features in CycleOps. This space will keep you informed about everything from major feature releases to small but important improvements.
+Decentralization means replication and consensus, so how do we square off against web2 apps that don't have the same security parameter requirements. The answer is simpler than you think.
 
 <!-- truncate -->
 

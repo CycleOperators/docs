@@ -1,13 +1,13 @@
 ---
-slug: introducing-changelog
-title: Introducing the CycleOps Changelog
+slug: intercanister
+title: Intercanister call updates are coming, here's how to prepare
 authors: [jorgen]
-image: https://cdn.midjourney.com/98461a6e-1a8c-44f8-87cd-e8e9c13153a9/0_0.png
+image: https://cdn.midjourney.com/3f36bc9e-c870-4db7-b7a8-acd705ed9a14/0_0.png
 ---
 
-![https://cdn.midjourney.com/98461a6e-1a8c-44f8-87cd-e8e9c13153a9/0_0.png](https://cdn.midjourney.com/98461a6e-1a8c-44f8-87cd-e8e9c13153a9/0_0.png)
+![https://cdn.midjourney.com/3f36bc9e-c870-4db7-b7a8-acd705ed9a14/0_0.png](https://cdn.midjourney.com/3f36bc9e-c870-4db7-b7a8-acd705ed9a14/0_0.png)
 
-We're excited to introduce the CycleOps Changelog – your go-to destination for staying up-to-date with all the latest updates, improvements, and new features in CycleOps. This space will keep you informed about everything from major feature releases to small but important improvements.
+The new updates to intercanister calls could result in really significant bottom line changes for your project. Here's how to prepare.
 
 <!-- truncate -->
 
