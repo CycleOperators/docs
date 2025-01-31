@@ -51,7 +51,7 @@ const config: Config = {
           blogTitle: "Changelog",
           blogDescription:
             "Keep up with the latest updates and improvements to CycleOps",
-          blogSidebarCount: "ALL",
+          blogSidebarCount: 0,
           blogSidebarTitle: "Posts",
           showReadingTime: true,
           feedOptions: {
@@ -97,11 +97,11 @@ const config: Config = {
           position: "left",
           label: "Docs",
         },
-        {
-          to: "/changelog",
-          label: "Changelog",
-          position: "left",
-        },
+        // {
+        //   to: "/changelog",
+        //   label: "Changelog",
+        //   position: "left",
+        // },
       ],
     },
   } satisfies Preset.ThemeConfig,
