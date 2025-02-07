@@ -97,11 +97,11 @@ const config: Config = {
           position: "left",
           label: "Docs",
         },
-        // {
-        //   to: "/changelog",
-        //   label: "Changelog",
-        //   position: "left",
-        // },
+        {
+          to: "/changelog",
+          label: "Changelog",
+          position: "left",
+        },
       ],
     },
   } satisfies Preset.ThemeConfig,
