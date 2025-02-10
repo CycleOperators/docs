@@ -17,7 +17,7 @@ Our mission at CycleOps is to bring ICP's decentralized compute to market by pro
 
 So you've got a fleet of canisters. How can you connect to CycleOps to get monitoring, alerting, and automated top-ups? I have good news for you: it will only take 5 or 10 minutes, plus a few minutes of running an automated script.
 
-Our CSV upload feature has you covered. All you need to do is create a spreadsheet that lists all your canisters and how you want them to be configured. Don't worry about strictly formatting it, the upload feature will map it into the expected format and allow you to proofread and fix the mapping if necessary. Read the docs for more detail about what columns you can use to customize your CycleOps configuration when adding the CSV upload feature.
+Our CSV upload feature has you covered. All you need to do is create a spreadsheet that lists all your canisters and how you want them to be configured. Don't worry about strictly formatting it, the upload feature will map it into the expected format and allow you to proofread and fix the mapping if necessary. [Read the docs](/docs/csv-upload) for more detail about what columns you can use to customize your CycleOps configuration when adding the CSV upload feature.
 
 ### Monitoring Your Fleet
 
