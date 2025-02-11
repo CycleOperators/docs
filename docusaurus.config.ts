@@ -36,6 +36,14 @@ const config: Config = {
         version: "latest",
       },
     ],
+    [
+      "posthog-docusaurus",
+      {
+        apiKey: "phc_Wtrphby3sCI6p69g9zFm2waUUjkeQxOEOTmYe0bX5uU",
+        appUrl: "https://us.i.posthog.com", // optional, defaults to "https://us.i.posthog.com"
+        enableInDevelopment: false, // optional
+      },
+    ],
   ],
 
   presets: [
