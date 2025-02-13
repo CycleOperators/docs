@@ -91,7 +91,7 @@ const config: Config = {
       disableSwitch: false,
     },
     // Open Graph and Twitter card images.
-    image: "img/cycleops.png",
+    image: "img/og-docs.png",
     navbar: {
       title: "CycleOps",
       logo: {
