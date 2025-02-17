@@ -68,8 +68,6 @@ It takes just 4 steps to integrate [icptopup-ts into your application](https://g
 
 For more examples, including how to execute asynchronous topups, check out the [icptopup-ts GitHub documentation](https://github.com/CycleOperators/icptopup-ts)
 
-
-
 ### Benefits of using icptopup-ts
 
 Before icptopup-ts, converting ICP to cycles had the following issues:
@@ -83,6 +81,9 @@ Before icptopup-ts, converting ICP to cycles had the following issues:
 
 icptopup-ts **solves these issues** by providing a simple, atomic, ICRC compatible API for topping up canisters in batch.
 
+### How does it work?
+
+Under the hood, icptopup-ts is built on top of the [ICPTopup Service](https://forum.dfinity.org/t/icptopup-com-the-easiest-way-to-top-up-canisters-with-cycles/36434), integrating with fixed APIs on the backend ICPTopup canister. The ICPTopup canister provides unified, atomic topup APIs that handling ICRC ICP transfer, cycle minting, and parallel batch cycles distribution to canisters.
 
 ### What's next?
 
