@@ -26,7 +26,7 @@ Over the past few weeks, developers have already used icptopup-ts to mint and se
 
 ### Why did we build icptopup-ts?
 
-Before icptopup-ts, converting ICP to cycles had the following <span style="color:tomato">**issues**</span>:
+Before icptopup-ts, converting ICP to cycles had the following issues:
 
 1. Minting cycles from ICP is not atomic and requires both an ICP transfer request, followed by a request to burn that ICP in order to mint cycles. Therefore, a topup attempted by a frontend integrated with the CMC could leave a user initiated topup in a half-finished, or inconsistent state, such as having sent funds but not received a topup if something goes wrong in the middle of this process.
 
@@ -34,11 +34,11 @@ Before icptopup-ts, converting ICP to cycles had the following <span style="colo
 
 4. The CMC does not have a batch cycles minting API, meaning that the developer needs to handle all complexity associated with batching cycles, incurring additional, unnecessary fees for each individual cycles minting transaction.
 
-### A simple, but powerful solution 💪
-icptopup-ts <span style="color:chartreuse">**solves these issues**</span> by providing a simple, atomic, ICRC compatible API for topping up multiple canisters in parallel.
+icptopup-ts **solves these issues** by providing a simple, atomic, ICRC compatible API for topping up multiple canisters in parallel.
 
+### Using ICRC-2 Approvals to simplify the DX 💪
 
-The package leverages [ICRC-2 approvals](https://github.com/dfinity/ICRC-1/tree/main/standards/ICRC-2#icrc2_approve), allowing the icptopup API to handle both ICP transfer and cycles topup, as well as handling potential intermediate error states that could occur. This results in a simplified, decoupled two step experience:
+The package leverages [ICRC-2 approvals](https://github.com/dfinity/ICRC-1/tree/main/standards/ICRC-2#icrc2_approve), allowing the icptopup API to handle both ICP transfer and cycles topups, as well as handling any potential intermediate error states that could occur. This results in a simplified, decoupled two step experience:
 
 1. First, the developer [approves icptopup-ts to mint cycles](https://github.com/CycleOperators/icptopup-ts?tab=readme-ov-file#2-approve-icptopup-to-mint-cycles-from-icp-on-your-behalf). This step is a simple approval for funds to be transferred, and does not transfer any ICP.
 
