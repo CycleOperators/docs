@@ -7,7 +7,7 @@ image: ./icptopup-ts.png
 
 [![](./icptopup-ts.png)](/changelog/icptopup-ts)
 
-Today we're releasing [icptopup-ts](https://github.com/CycleOperators/icptopup-ts), a TypeScript package that makes it easy to programatically 👨‍💻 facilitate large amounts of decentralized compute, sending cycles to up to 100 canisters at at time.
+Today we're releasing [icptopup-ts](https://github.com/CycleOperators/icptopup-ts), a TypeScript package that makes it easy to programmatically 👨‍💻 facilitate large amounts of decentralized compute, sending cycles to up to 100 canisters at at time.
 
 With `npm install icptopup-ts`, you can integrate atomic, ICRC compatible cycle topups into your application in just a few minutes!
 
