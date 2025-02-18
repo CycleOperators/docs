@@ -2,10 +2,10 @@
 slug: canister-fleets
 title: Canister Fleets Release
 authors: [jorgen]
-image: ./canister-fleets.png
+image: ./canister-fleets-external.png
 ---
 
-[![](./canister-fleets.png)](/changelog/canister-fleets)
+[![](./canister-fleets-internal.png)](/changelog/canister-fleets)
 
 Starting today it's easier than ever to manage a large fleet of canister smart contracts on ICP. We're releasing a new UI for [cycleops.dev](http://cycleops.dev) that can handle hundreds (or even thousands) of canisters, and we've raised our per account canister monitoring limit from 30 to 1,000. Already, teams have integrated fleets of up to 800 canisters for monitoring, alerting, and automated top-ups.
 

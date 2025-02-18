@@ -6,8 +6,8 @@ import type * as Preset from "@docusaurus/preset-classic";
 
 const config: Config = {
   title: "CycleOps",
-  tagline: "Dinosaurs are cool",
-  favicon: "img/cycleops.png",
+  tagline: "Decentralized compute made easy",
+  favicon: "/img/cycleops.png",
 
   // Set the production url of your site here
   url: "https://docs.cycleops.dev",
@@ -91,12 +91,12 @@ const config: Config = {
       disableSwitch: false,
     },
     // Open Graph and Twitter card images.
-    image: "img/og-docs.png",
+    image: "/img/og-docs.png",
     navbar: {
       title: "CycleOps",
       logo: {
         alt: "CycleOps",
-        src: "img/cycleops.png",
+        src: "/img/cycleops.png",
       },
       items: [
         {
