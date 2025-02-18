@@ -15,7 +15,7 @@ With `npm install icptopup-ts`, you can integrate atomic, ICRC compatible cycle 
 
 --------------
 
-In the same way that ICPTopup made topping up canisters on demand easy for anyone, icptopup-ts allows any app can facilitate decentralized ICP compute, sending cycles to up to 100 canisters at a time.
+In the same way that ICPTopup made topping up canisters on demand easy for anyone, icptopup-ts makes it easy to facilitate decentralized compute, sending cycles to up to 100 canisters at a time.
 
 **icptopup-ts** simplifies canister topups into just two steps.
 
