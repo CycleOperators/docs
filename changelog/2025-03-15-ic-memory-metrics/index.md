@@ -4,9 +4,9 @@ title: Enhancing Canister Monitoring with Detailed Memory Metrics
 authors: [quint]
 ---
 
-At CycleOps, our mission is to provide deep insights into canister performance, helping developers and teams monitor cycle usage and other critical metrics. We’re excited to announce a significant improvement we’ve contributed to the Internet Computer (IC) main repository - enhancing canister memory visibility with detailed memory metrics.
+Today we're announcing a core protocol update that will provide all canisters with more detailed memory metrics. This update equips developers with a clearer understanding of how their canisters utilize memory, allowing for better debugging, resource allocation, and monitoring.
 
-This update equips developers with a clearer understanding of how their canisters utilize memory, allowing for better debugging, resource allocation, and monitoring.
+This is our first contribution to the core protocol as a team, making CycleOps one of the few teams to contribute to the protocol outside of Dfinity, and aligns with our mission to help build a world class developer experience on ICP.
 
 <!-- truncate -->
 
@@ -15,6 +15,7 @@ This update equips developers with a clearer understanding of how their canister
 ### What’s New?
 
 We’ve introduced new memory usage fields in CanisterStatus, giving developers a more granular view of memory consumption. These fields include:
+
 - `wasm_memory_size` – Tracks memory used by the WebAssembly module.
 - `stable_memory_size` – Captures memory stored persistently across upgrades.
 - `global_memory_size` – Monitors memory allocated for global variables.
@@ -38,9 +39,9 @@ For teams using our monitoring solutions, these updates bring a **new level of t
 
 ### A Collaborative Effort
 
-This improvement was the result of a fantastic collaboration with the teams at DFINITY, and we’re grateful for the opportunity to contribute to the IC ecosystem. Open-source progress thrives on shared efforts, and we’re excited to continue pushing the platform forward.
+This improvement was the result of a fantastic collaboration with the teams at Dfinity, and we’re grateful for the opportunity to contribute to the IC ecosystem. Open-source progress thrives on shared efforts, and we’re excited to continue pushing the platform forward.
 
-Got thoughts or feedback? We’d love to hear how these new metrics help you optimize your canisters! 🚀
+Got thoughts or feedback? We’d love to hear how these new metrics help you optimize your canisters! 🚀 Connect with us and share your experience [@CycleOps on X](https://x.com/CycleOps)
 
 #### References
 
