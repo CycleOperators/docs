@@ -1,4 +1,3 @@
-import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 
@@ -10,7 +9,9 @@ const config: Config = {
   favicon: "/img/cycleops.png",
 
   // Set the production url of your site here
-  url: "https://docs.cycleops.dev",
+  url: process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : "https://docs.cycleops.dev",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
