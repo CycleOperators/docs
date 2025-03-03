@@ -2,7 +2,10 @@
 slug: ic-memory-metrics
 title: Enhancing Canister Monitoring with Detailed Memory Metrics
 authors: [quint]
+image: ./protocol-metrics-external.png
 ---
+
+[![](./protocol-metrics-internal.png)](/changelog/ic-memory-metrics)
 
 Today we're announcing a core protocol update that will provide all canisters with more detailed memory metrics. This update equips developers with a clearer understanding of how their canisters utilize memory, allowing for better debugging, resource allocation, and monitoring.
 
