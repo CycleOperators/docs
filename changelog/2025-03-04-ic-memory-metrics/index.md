@@ -9,7 +9,7 @@ image: ./protocol-metrics-external.png
 
 Today we're announcing a core protocol update that will provide all canisters with more detailed memory metrics. This update equips developers with a clearer understanding of how their canisters utilize memory, allowing for better debugging, resource allocation, and monitoring.
 
-This is our first contribution to the core protocol as a team, making CycleOps one of the few teams to contribute to the protocol outside of Dfinity, and aligns with our mission to help build a world class developer experience on ICP.
+This is our first contribution to the core protocol as a team, making CycleOps one of the first teams to contribute to the protocol outside of Dfinity, and aligns with our mission to help build a world class developer experience on ICP.
 
 <!-- truncate -->
 
