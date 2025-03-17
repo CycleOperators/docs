@@ -90,4 +90,4 @@ If you encounter any issues during the transfer process:
 - Verify that the canister is properly assigned to a project
 - If the transfer fails, try refreshing the page and attempting the transfer again
 
-For any further assistance, contact CycleOps support at [contact@cycleops.dev](mailto:contact@cycleops.dev)
+For any further assistance, contact CycleOps support at [Twitter](https://x.com/CycleOps)
