@@ -7,60 +7,45 @@ image: ./batch-actions-external.png
 
 [![](./batch-actions-internal.png)](/changelog/reserved-cycle-alerts)
 
-Did you know that your canister can suddenly stop saving new data ❌ if it’s on a busy subnet and you haven’t set it up to reserve enough cycles for new memory allocations? 🫢 
+Did you know that your canister can suddenly stop saving new data if it’s on a busy subnet and you haven’t set it up to reserve enough cycles for new memory allocations?
 
-With CycleOps’ new reserved cycles monitoring and alerts 🚨, you can proactively manage reserved cycles limits for your canisters, keeping them running smoothly and avoiding unexpected downtime 🔋🔋🔋
-
+CycleOps now has monitoring and alerting features to help you stay on top of the important but lesser-known "reserved cycles" canister configuration. Here's everything you need to know about reserved cycles, and how you can set up alerts for them in just a few minutes!
 
 <!-- truncate -->
 
-------
+## What are reserved cycles?
 
-### What Are Reserved cycles?
-* **reserved_cycles:** A dedicated, non-transferable cycles pool of a canister that "pays ahead" for newly allocated canister memory **when the subnet that canister is on has allocated more than 450GiB of memory** 
+Released in late 2023, the reserved cycles mechanism was designed to prevent a few canisters from easily consuming all the storage on a subnet. When a subnet is nearing capacity, canisters on that subnet must begin paying in advance for any additional storage and do so by automatically transferring some of their cycles into a dedicated “reserved cycles” pool.
 
-* **reserved_cycles_limit:** An upper limit and spending cap on how many cycles can be `reserved_cycles`, or set aside to pay for future storage. This limit controls whether (and how much) new canister storage can be allocated once a subnet’s memory has grown beyond 450GiB. <br/><br/> ✍️ &nbsp; Note: By default, a canister has a reserved cycles limit of 5 trillion cycles.
+Each canister can be configured to set a maximum size for its reserved cycles pool, which is known as a canister's `reserved_cycles_limit` configuration. All canisters have a reserved cycles limit of 5 trillion cycles (TC) by default.
 
-### What happens when I run out of reserved cycles?
+## What happens if I run out of reserved cycles?
 
-If a canister hits its reserved cycles limit or is running low on cycles, it may fail to commit state, producing errors ❌ such as:
-* ["Reserved cycles limit exceeded in memory grow"](https://internetcomputer.org/docs/references/execution-errors#reserved-cycles-limit-exceeded-in-memory-grow)
-* ["Reserved cycles limit exceeded in memory allocation"](https://internetcomputer.org/docs/references/execution-errors#reserved-cycles-limit-exceeded-in-memory-allocation) 
+A canister which hits its reserved cycles limit will no longer be able to commit new state. This means that write endpoints will begin to fail, which can cause all sorts of production errors. You can see the types of execution errors that would occur in these instances in the official documentation:
 
-### How To Use CycleOps Reserved Cycle Alerts
-CycleOps collects historical reserved cycles data, allowing you to view your canister's reserved cycles usage over time 📈, measured as a percentage ％ of overall usage towards your canister's reserved cycles limit.
+- ["Reserved cycles limit exceeded in memory grow"](https://internetcomputer.org/docs/references/execution-errors#reserved-cycles-limit-exceeded-in-memory-grow)
+- ["Reserved cycles limit exceeded in memory allocation"](https://internetcomputer.org/docs/references/execution-errors#reserved-cycles-limit-exceeded-in-memory-allocation)
 
-![Reserved Cycles Chart](screenshot_reserved_cycles_chart.png) 
+## Introducing reserved cycles monitoring and alerting
 
-When your canister passes its reserved cycles percentage alert threshold, you'll receive an alert if you have 📩 email alerts enabled.
+Our new features are designed to keep these reserved cycles errors from happening. Reserved cycles monitoring insights are available for all canisters, and allow you to easily see if any of your canisters are approaching their limit.
 
-![Reserved Cycles Email](screenshot_reserved_cycles_email.png)
+[Screenshot of reserved cycles time series insight](https://www.notion.so/Reserved-Cycle-Alerts-1bb49867d8ff807f9b8efb98271b5254?pvs=21) (TODO)
 
-In CycleOps 👁️‍🗨️, you can also modify your reserved cycles alert percentage threshold from a specific canister's alerts tab.
+Reserved cycles limit alerts will send you an email alert if any canisters cross a configurable threshold of a certain percent of their total reserved cycles limit.
 
-![Modifying Your Reserved Cycle Alert threshold](screenshot_modify_reserved_cycle_limit.png)
+[Recording of reserved cycles limit alert configuration](https://www.notion.so/Reserved-Cycle-Alerts-1bb49867d8ff807f9b8efb98271b5254?pvs=21) (TODO)
 
-To update your canister's reserved cycles limit through dfx, use the command:
-```
-dfx canister --ic update-settings --reserved-cycles-limit <new_reserved_cycles_limit> <canister>
-```
+By enabling these alerts, CycleOps will make sure that you receive ample notification before this type of production error hits your canisters. Don't wait for subnet load to break your canisters, set up your alerts now! It will only take a few minutes.
 
+[How to enable reserved cycles limit alerting for your canisters](TODO: create and link to a page in the docs site, and create a new batch action.)
 
-### Background on Reserved Cycles and ICP's Resource Reservation Mechanism
-Historically, canisters on the Internet Computer paid for storage in a “pay-as-you-go” manner:
-As a canister writes to heap or stable memory 📝, it burns cycles to pay for that storage 🔥.
+---
 
+## Further Reading
 
-While convenient, this model was vulnerable to spiky storage usage patterns: a canister could temporarily allocate a large amount of subnet storage, hold it for a few hours, and then drop it's memory usage or even uninstall the canister at relatively little cost. This could disrupt other canisters 🙅‍♂️ if a subnet's storage was “fully booked,” even if only for a short time.
+[This original forum post](https://forum.dfinity.org/t/increasing-subnet-storage-capacity-and-introducing-resource-reservation-mechanism/23447) remains the best place for documentation on this feature if you want to dive deeper into the details. Have questions about reserved cycles? Ask a question on this thread, or ping us on X!
 
-Released in late 2023, The new [resource reservation mechanism](https://forum.dfinity.org/t/increasing-subnet-storage-capacity-and-introducing-resource-reservation-mechanism/23447) is designed to discourage these sudden large spikes in storage usage by requiring canisters to “front-load” some of the storage costs 💰 when the subnet is already heavily used. If you truly need long-term storage, you won’t pay more overall, but short-term “spikes” become more expensive up front.
-
-
-
-### A home for your canisters
-
-Our goal is to make [cycleops.dev](https://cycleops.dev) the easiest way to monitor and manage your canisters. As the protocol evolves, we'll continue to add new metrics, keeping your canisters running and keeping you focused on building great dapps!
-
-### Connect with us
+## Connect with us
 
 Find us [@CycleOps on X](https://x.com/CycleOps) and let us know what metrics and alerts you'd like to see us build next!
