@@ -12,15 +12,7 @@ CycleOps now has monitoring and alerting features to help you stay on top of the
 
 ## Video Guide: Enable Reserved Cycles Limit Alerts on Your Canisters
 
-<video
-width="100%"
-controls
-playsinline
-preload="metadata"
-style="max-width: 100%; height: auto;"
-
->
-
+<video width="100%" controls playsinline preload="metadata">
   <source src="/reserved-cycles-alert-video.webm" type="video/webm" />
   <source src="/reserved-cycles-alert-video.mp4" type="video/mp4" />
   <p>Your browser does not support the video tag. You can <a href="/reserved-cycles-alert-video.mp4">download the video</a> to watch it on your device.</p>
