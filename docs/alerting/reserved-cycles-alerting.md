@@ -6,15 +6,24 @@ title: Reserved Cycles Alerting
 
 # How to Enable Reserved Cycles Limit Alerting for Your Canisters
 
-Did you know that your canister can suddenly stop saving new data if it’s on a busy subnet and you haven’t set it up to reserve enough cycles for new memory allocations?
+Did you know that your canister can suddenly stop saving new data if it's on a busy subnet and you haven't set it up to reserve enough cycles for new memory allocations?
 
 CycleOps now has monitoring and alerting features to help you stay on top of the important but lesser-known "reserved cycles" canister configuration. Here's everything you need to know about reserved cycles, and how you can set up alerts for them in just a few minutes!
 
 ## Video Guide: Enable Reserved Cycles Limit Alerts on Your Canisters
 
-<video width="100%" controls>
+<video
+width="100%"
+controls
+playsinline
+preload="metadata"
+style="max-width: 100%; height: auto;"
+
+>
+
+  <source src="/reserved-cycles-alert-video.webm" type="video/webm" />
   <source src="/reserved-cycles-alert-video.mp4" type="video/mp4" />
-  Your browser does not support the video tag.
+  <p>Your browser does not support the video tag. You can <a href="/reserved-cycles-alert-video.mp4">download the video</a> to watch it on your device.</p>
 </video>
 
 ## Step-by-Step Guide: Enabling Reserved Cycles Limit Alerting
