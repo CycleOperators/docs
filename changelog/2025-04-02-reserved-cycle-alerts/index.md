@@ -2,7 +2,7 @@
 slug: reserved-cycle-alerts 
 title: Reserved Cycle Alerts 
 authors: [byron]
-image: ./batch-actions-external.png
+image: ./reserved-cycles-external.png
 ---
 
 [![](./reserved-cycles-external.png)](/changelog/reserved-cycle-alerts)
