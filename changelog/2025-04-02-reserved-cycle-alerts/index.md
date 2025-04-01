@@ -30,7 +30,7 @@ A canister which hits its reserved cycles limit will no longer be able to commit
 
 Our new features are designed to keep these reserved cycles errors from happening. Reserved cycles monitoring insights are available for all canisters monitored via the [CycleOps blackhole version >= V2](https://github.com/cycleoperators/balanceCheckerVerification/), the SNS, or the NNS and allow you to easily see if any of your canisters are approaching their limit.
 
-Check out the [Reserved Cycles Alerting documentation](../../docs/alerting/reserved-cycles-alerting.md) to configure reserved cycle alerts for your canisters.
+Check out the [Reserved Cycles Alerting documentation](../../docs/alerting/reserved-cycles-alerting) to configure reserved cycle alerts for your canisters.
 
 By enabling these alerts, CycleOps will make sure that you receive ample notification before this type of production error hits your canisters. Don't wait for subnet load to break your canisters, set up your alerts now! It will only take a few minutes.
 
