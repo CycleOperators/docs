@@ -5,7 +5,7 @@ authors: [byron]
 image: ./batch-actions-external.png
 ---
 
-[![](./reserved-cycles-external.png)](/changelog/reserved-cycles-external)
+[![](./reserved-cycles-external.png)](/changelog/reserved-cycle-alerts)
 
 Did you know that your canister can suddenly stop saving new data if it’s on a busy subnet and you haven’t set it up to reserve enough cycles for new memory allocations?
 
