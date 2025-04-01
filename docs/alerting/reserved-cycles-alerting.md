@@ -10,6 +10,14 @@ Did you know that your canister can suddenly stop saving new data if it's on a b
 
 CycleOps now has monitoring and alerting features to help you stay on top of the important but lesser-known "reserved cycles" canister configuration. Here's everything you need to know about reserved cycles, and how you can set up alerts for them in just a few minutes!
 
+## Prerequisite:
+Reserved Cycles Monitoring is available for all canisters monitored via:
+* the [CycleOps blackhole version >= V2](https://github.com/cycleoperators/balanceCheckerVerification/)
+* the SNS
+* the NNS.
+
+If you're canister is currently monitored via the [V1 blackhole](https://github.com/cycleoperators/balanceCheckerVerification/), you can enable monitoring by [upgrading to the latest version of the blackhole](https://docs.cycleops.dev/docs/blackhole-upgrade/).
+
 ## Video Guide: Enable Reserved Cycles Limit Alerts on Your Canisters
 
 <video width="100%" controls playsinline preload="metadata">
