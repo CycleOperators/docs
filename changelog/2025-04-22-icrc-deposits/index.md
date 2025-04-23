@@ -1,11 +1,11 @@
 ---
-slug: icrc-deposits 
-title: ICRC Deposits 
+slug: icrc-deposits
+title: ICRC Deposits
 authors: [byron]
-image: ../2025-04-02-reserved-cycle-alerts/reserved-cycles-external.png
+image: ../2025-04-22-icrc-deposits/icrc-external.png
 ---
 
-[![](./reserved-cycles-internal.png)](/changelog/reserved-cycles)
+[![](./icrc-internal.png)](/changelog/icrc-deposits)
 
 Today, we're rolling out ICRC deposits for CycleOps, meaning you can fund topups directly from your SNS with a single Transfer SNS Treasury Funds proposal 🎉
 
@@ -25,11 +25,10 @@ Today, we're rolling out ICRC deposits for CycleOps, meaning you can fund topups
 2. Send funds to this principal (Having trouble? See note below)
 
 :::note
-*CycleOps account ICRC principals use subaccounts, which are supported by several applications, including the NNS and applications like SNS toolkit. At this point in time, not all wallets support ICRC subaccounts.
+\*CycleOps account ICRC principals use subaccounts, which are supported by several applications, including the NNS and applications like SNS toolkit. At this point in time, not all wallets support ICRC subaccounts.
 
 If your wallet does not support sending to ICRC accounts with subaccounts, you can alternatively send funds to your CycleOps account by clicking on "Address Format" and copying the account identifier
 :::
-
 
 ## Connect with us
 
