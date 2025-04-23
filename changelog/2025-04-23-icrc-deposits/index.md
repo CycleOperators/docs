@@ -45,9 +45,14 @@ If your wallet does not support sending to ICRC accounts with subaccounts, you c
 :::note
 If creating a treasury proposal manually, you can copy in the principal and subaccount, which are separated by `-<crc_checksum>.` characters.
 
-For example, if my ICRC account is `v6hxe-jaaaa-aaaap-aawpq-cai-y5q7dpq.4366f227dbc2711a59886f7b4d21c1e47a5b98195fa20ad3b359e06c57b46ab7`, then
-principal = `v6hxe-jaaaa-aaaap-aawpq-cai`
-checksum = `y5q7dpq`
+For example, if my: 
+
+ICRC account = `v6hxe-jaaaa-aaaap-aawpq-cai-y5q7dpq.4366f227dbc2711a59886f7b4d21c1e47a5b98195fa20ad3b359e06c57b46ab7`
+
+then the individual parts are
+
+principal = `v6hxe-jaaaa-aaaap-aawpq-cai` <br/>
+checksum = `y5q7dpq` <br/>
 subaccount = `4366f227dbc2711a59886f7b4d21c1e47a5b98195fa20ad3b359e06c57b46ab7`
 :::
 
