@@ -1,0 +1,29 @@
+---
+description: 
+globs: changelog/*
+alwaysApply: false
+---
+# Strategic Intro
+
+The Changelog is a content site that helps us to turn our product efforts into a little promotion. We build lots of things, and the Changelog is a blog where we talk about the things that we build.
+
+# Our Audience
+
+We build products for developers and builders (for the most part.) They might be an ICP enthusiast. Over time, we will more and more become people's first touch point with building ICP, because of our fantastic new player experience. People look to us for occasional information on protocol updates or critical protocol events, and for information on the best way to build things on ICP.
+
+# Format Guide
+
+Every post basic product update post should be assessed on some basic criteria. It should hit all of these beats:
+
+- What We Shipped
+- Why It Matters
+- How You Can Use It
+- Clear CTA
+
+Posts should be kept short and readable by a **general audience**. Overly technical content should be placed in readme files, or the official documentation if warranted. This will allow us to keep readers engaged, perhaps browsing multiple articles, and having a higher chance of arriving at our CTAs with a feeling of interest instead of bouncing because an article was too long, technical, or boring.
+
+At the end of each article there should be a clear call to action related to the post, if there is any action the reader can take related to the post.
+
+# Limitations
+
+- We talk about our work on the Changelog, but we don't call our shots publicly: no roadmaps or estimated deliveries! Talking about upcoming stuff is okay but don't make a commitment that some anon is going to hold against you.
