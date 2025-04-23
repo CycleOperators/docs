@@ -2,7 +2,7 @@
 slug: icrc-deposits
 title: ICRC Deposits
 authors: [byron]
-image: ../2025-04-22-icrc-deposits/icrc-external.png
+image: ./icrc-external.png
 ---
 
 [![](./icrc-internal.png)](/changelog/icrc-deposits)
