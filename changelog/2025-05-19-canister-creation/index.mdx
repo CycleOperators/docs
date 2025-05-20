@@ -1,0 +1,70 @@
+---
+slug: canister-creation 
+title: Canister Creation Made Easy
+authors: [byron]
+image: ./canister-creation-external.png
+---
+
+[![](./canister-creation-internal.png)](/changelog/canister-creation)
+
+Today we're releasing the ability to create new canister smart contracts in seconds, and to manage them directly from your CycleOps dashboard.
+
+No terminal. No `dfx canister create ...<what args next?>`. Just a few clicks.
+
+<!-- truncate -->
+
+## What we shipped
+
+CycleOps now lets you create and manage Internet Computer canisters without ever leaving your browser. Add a canister and click “Create New” to:
+- Create a canister on any subnet—including low‑latency, high‑storage, or fiduciary subnets.
+- Pre‑load it with the exact number of cycles you choose.
+- Add one or more controllers (your dfx principal, teammates, or service canisters).
+- Manage lifecycle actions: start, stop, and delete.
+- Tweak settings on the fly: controllers, freezing threshold, reserved cycles.
+- Snapshot, restore, and stream live logs—straight from the UI.
+
+## Why we built it
+
+Creating canisters has typically meant juggling `dfx`, ledger transfers, and guessing which subnet will serve you best. That process costs time and invites mistakes:
+
+- **Speed:** Spin up a production‑ready canister in seconds.
+- **Safety:** Clear UI prevents accidental under‑funding or wrong‑subnet deploys.
+- **Scale:** Fleet owners can keep all canisters—old and new—visible and actionable in one place.
+
+CycleOps already monitors and tops‑up thousands of canisters; now it can create and manage them, too
+
+## How you can use it
+
+<video controls width="600">
+  <source src="/create-canister.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+
+1. Open **Canisters → New Canister** in your CycleOps dashboard.
+2. Pick the subnet that suits your use case. Need low latency? Choose one of our fast‑lane subnets. Want high node count for fiduciary workloads? That option’s there too.
+3. Enter an initial cycles balance—CycleOps will transfer the cycles and confirm allocation.
+4. Add controllers (paste principal IDs or pick from your org’s members).
+5. Click **Create**. In a few seconds your new canister appears in the dashboard.
+
+## Managing Created Canisters
+
+After creating a canister, you can manage it by clicking on a canister and then navigating to its “Manage” tab. From here, you can:
+
+- Start/stop the canister as needed.
+- Adjust settings and controllers anytime.
+- Snapshots: create a point‑in‑time state backup and roll back with one click.
+- Watch live logs while you iterate.
+
+<video controls width="600">
+  <source src="/live-logs.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+<br/><br/>
+
+Ready to try it? [Log in](https://cycleops.dev) and deploy your first canister today.
+
+---
+
+Have questions or feedback about CycleOps? Jump into our [**OpenChat**](https://oc.app/community/tw3lb-zqaaa-aaaar-ar3aa-cai/?ref=xeivw-sqaaa-aaaaf-adr7a-cai) or tag us on [**X**](https://x.com/CycleOps).
