@@ -18,7 +18,11 @@ If you created a new account (by logging in to CycleOps), first select the optio
 
 ![join-team](./img/join-team.png)
 
-You can also always find your principal in the dropdown at the top right of the app, as long as you’re logged in. Your principal is displayed at the top, and you can click on it to copy it to your clipboard.
+You can also always find your principal from your personal account's settings at [https://cycleops.dev/app/personal/settings/](https://cycleops.dev/app/personal/settings/), as long as you’re logged in. Your principal is displayed halfway down this settings page, and you can click on it to copy it to your clipboard.
+
+:::caution
+Do not send funds to your CycleOps principal, only use it for joining teams and managing canisters.
+:::
 
 ![principal](./img/principal.png)
 
