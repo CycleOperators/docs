@@ -7,7 +7,7 @@ image: ./protocol-metrics-external.png
 
 [![](./protocol-metrics-internal.png)](/changelog/advanced-memory-metrics)
 
-Heap overflow anxiety &mdash; gone. The new CycleOps V3 Blackhole adds 8 new in-depth memory metrics, with heap and stable memory alerts that keep your canister's data healthy and cost‑efficient.
+Heap overflow anxiety — gone. The new CycleOps V3 Blackhole adds 8 new in-depth memory metrics, with heap and stable memory alerts that keep your canister's data healthy and cost‑efficient.
 
 <!-- truncate -->
 
@@ -34,9 +34,9 @@ Different components of canister memory have different protocol limits. For exam
 - Stable memory size - 500GB (can up to as large as the single canister limit)
 
 Understanding these memory limits and using CycleOps to monitor and set appropriate alert thresholds allows you to:
-- **Catch leaks early:** use memory alerts surface spikes in heap or stable memory immediately
-- **Save money:** visualize and optimize memory growth over time, saving on storage cycle costs.
-- **Avoid catastrophic overflows:** Canister heap memory overflows are extremely hard to recover from. Set up heap memory alerts in CycleOps to migrate canister memory before it's too late!
+- **Catch leaks early:** Get alerted immediately when heap or stable memory usage spikes.
+- **Save money:** Track and optimize memory growth over time, saving on storage cycle costs.
+- **Avoid memory cliffs:** Set proactive heap alerts to avoid hitting unfixable overflow errors and ensure smooth canister migrations.
 
 ### What about email alerts?
 Quickly set up memory email alerts for individual canisters by clicking on the canister -> settings -> alerts.
