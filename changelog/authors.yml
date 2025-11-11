@@ -21,3 +21,9 @@ quint:
   title: Developer
   url: https://github.com/q-uint
   image_url: /img/authors/quint.png
+
+steve:
+  name: Steve Kimoi
+  title: Developer
+  url: https://github.com/Stephen-Kimoi
+  image_url: /img/authors/steve.jpeg
