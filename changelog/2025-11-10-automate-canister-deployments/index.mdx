@@ -1,0 +1,92 @@
+---
+slug: automate-canister-deployments
+title: Automate Your Canister Deployments with CycleOps and ic-deploy-actions
+authors: [steve]
+---
+
+[![](./poster.png)](/changelog/automate-canister-deployments)
+
+CI/CD pipelines just got a lot easier on the Internet Computer.
+
+In this post, I'm going to show you how you can easily automate your deployments using ``CycleOps`` and ``IC Deploy Actions``
+
+No need to manually run dfx deploy command on your terminal, or spend hours configuring your custom github actions. Just plug in and use. 
+
+<!-- truncate -->
+
+--- 
+
+Hi there, I'm Steve Kimoi, an ICP developer behind tools like [generate-did](https://crates.io/crates/generate-did), [DNS Config Generator](https://canisterdns.stevekimoi.me/), [ckTokens Minter](https://github.com/Stephen-Kimoi/cketh-tutorial) and other [ICP developer toolkits](https://stevekimoi.me/icp-projects). 
+
+Today I'm walking through how CycleOps pairs with the [`ic-deploy-actions`](https://github.com/Stephen-Kimoi/ic-deploy-action) GitHub Action to make Internet Computer deployments hands-off.
+
+## What We Shipped
+
+You can now easily automate your deployments to Internet Computer with these simple steps using [ic-deploy-actions](https://github.com/Stephen-Kimoi/ic-deploy-action) 
+
+- With just simple steps automation, you're sorted for life: combination of ``CycleOps`` with `ic-deploy-actions` helps you build & automatically deploy your canisters on every push.
+- Secure auth: PEM keys are stored in GitHub Secrets, keeping credentials out of source control.
+- Flexible workflows: you get to ship a single canister or multiple canisters within the same pipeline.
+- Repeatable delivery: every merge to the default branch automatically updates your production code, thus making you stay consistent. 
+
+## Why It Matters
+
+Manual deployments get messy when your project or team grows. This workflow keeps every step in GitHub, removes copy-paste scripts, and uses familiar GitHub Actions. What you merge is what goes live on mainnet.
+
+## How You Can Use It
+
+### 1. Create or Add a Canister in CycleOps
+
+- Spin up the canister from your CycleOps dashboard - full docs live [here](https://docs.cycleops.dev/changelog/canister-creation).
+- Run a one-time deploy from your workstation so the canister has initial code on mainnet.
+
+### 2. Wire Up `ic-deploy-actions`
+
+Create `.github/workflows/deploy.yml` in your repo and paste in this workflow:
+
+```yml
+name: Deploy to IC
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Deploy to IC
+        uses: Stephen-Kimoi/ic-deploy-action/action@v0.1.1
+        with:
+          pem_key: ${{ secrets.IC_PEM_KEY }}
+          network: ic
+          canister_name: your_backend_canister_name
+          deploy_frontend: "true"
+          deploy_backend: "true"
+          frontend_dir: src/your_frontend_dir/dist
+          backend_package: your_backend_package
+          frontend_package: your_frontend_package
+          frontend_src_dir: src/your_frontend_dir
+```
+
+Generate a **PEM key** and add it to your **GitHub secrets**:
+
+```bash
+dfx identity new cicd-identity --storage-mode=plaintext
+dfx identity export cicd-identity > cicd-identity.pem
+base64 -i cicd-identity.pem > cicd-identity.pem.base64
+```
+
+Copy the **Base64 output** into a **IC_PEM_KEY** repository secret and you're done.
+
+That's it - every push to `main` now ships straight to the Internet Computer. CycleOps handles monitoring and top-ups, while `ic-deploy-actions` keeps builds and deployments flowing.
+
+---
+
+### ✅ Ready to try it?
+
+1. [Create a canister in CycleOps](https://docs.cycleops.dev/changelog/canister-creation)
+2. Add [`ic-deploy-actions`](https://github.com/Stephen-Kimoi/ic-deploy-action) to your repo
+3. Push to `main` and watch your deployment go live
