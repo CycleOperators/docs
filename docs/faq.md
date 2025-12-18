@@ -43,12 +43,12 @@ Want more frequent top-ups? Let us know at [contact@cycleops.dev](mailto:contact
 
 ### What does CycleOps cost?
 
-CycleOps charges a 5% margin on all canister cycles top-ups. 
+CycleOps charges a 6% margin on all canister cycles top-ups. 
 
 If you pay for top-ups in:
 
 - ICP: This is reflected in the ICP per trillion cycles displayed at the top right of your CycleOps Dashboard
-- Cycles: a flat 5% fee in cycles is applied to every top-up.
+- Cycles: a flat 6% fee in cycles is applied to every top-up.
 
 ### Are there options to monitor my canister other than through the CycleOps blackhole?
 
