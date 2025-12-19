@@ -8,23 +8,27 @@ sidebar_position: 5
 
 ## Questions
 
-- [What services does CycleOps provide?](#what-services-does-cycleops-provide)
-- [How long does it take for me to set up canister monitoring with CycleOps.](#how-long-does-it-take-for-me-to-set-up-canister-monitoring-with-cycleops)
-- [How often do you check cycles balances?](#how-often-do-you-check-cycles-balances)
-- [What does CycleOps cost?](#what-does-cycleops-cost)
-- [Are there options to monitor my canister other than through the CycleOps blackhole?](#are-there-options-to-monitor-my-canister-other-than-through-the-cycleops-blackhole)
-- [Why do I need to add the CycleOps Balance Checker as a controller of my canister in order to have my canister cycles balance monitored?](#why-do-i-need-to-add-the-cycleops-balance-checker-as-a-controller-of-my-canister-in-order-to-have-my-canister-cycles-balance-monitored)
-- [How can I trust the code that the CycleOps Balance Checker is running won’t change?](#how-can-i-trust-the-code-that-the-cycleops-balance-checker-is-running-wont-change)
-- [What is a Black-holed Canister?](#what-is-a-black-holed-canister)
-- [I’d like to integrate with CycleOps in a different way. Can I add an endpoint that CycleOps can monitor?](#id-like-to-integrate-with-cycleops-in-a-different-way-can-i-add-an-endpoint-that-cycleops-can-monitor)
-- [I'm unable to add an NNS Monitored canister, why?](#im-unable-to-add-an-nns-monitored-canister-why)
-- [My canister is showing up as pending, what does that mean?](#my-canister-is-showing-up-as-pending-what-does-that-mean)
-- [Why hasn't CycleOps automatically topped up my canister yet?](#why-hasnt-cycleops-automatically-topped-up-my-canister-yet)
+- [FAQ](#faq)
+  - [Questions](#questions)
+    - [What services does CycleOps provide?](#what-services-does-cycleops-provide)
+    - [How long does it take for me to set up canister monitoring with CycleOps.](#how-long-does-it-take-for-me-to-set-up-canister-monitoring-with-cycleops)
+    - [How often do you check cycles balances?](#how-often-do-you-check-cycles-balances)
+    - [What does CycleOps cost?](#what-does-cycleops-cost)
+    - [Are there options to monitor my canister other than through the CycleOps blackhole?](#are-there-options-to-monitor-my-canister-other-than-through-the-cycleops-blackhole)
+    - [Why do I need to add the CycleOps Balance Checker as a controller of my canister in order to have my canister cycles balance monitored?](#why-do-i-need-to-add-the-cycleops-balance-checker-as-a-controller-of-my-canister-in-order-to-have-my-canister-cycles-balance-monitored)
+    - [How can I trust the code that the CycleOps Balance Checker is running won’t change?](#how-can-i-trust-the-code-that-the-cycleops-balance-checker-is-running-wont-change)
+    - [What is a Black-holed Canister?](#what-is-a-black-holed-canister)
+    - [I’d like to integrate with CycleOps in a different way. Can I add an endpoint that CycleOps can monitor?](#id-like-to-integrate-with-cycleops-in-a-different-way-can-i-add-an-endpoint-that-cycleops-can-monitor)
+    - [I'm unable to add an NNS Monitored canister, why?](#im-unable-to-add-an-nns-monitored-canister-why)
+    - [My canister is showing up as pending, what does that mean?](#my-canister-is-showing-up-as-pending-what-does-that-mean)
+    - [Why hasn't CycleOps automatically topped up my canister yet?](#why-hasnt-cycleops-automatically-topped-up-my-canister-yet)
 
 ### What services does CycleOps provide?
+
 CycleOps is proactive, automated, no-code monitoring for canister applications on the Internet Computer.
 
 Running for 20 months with zero downtime, CycleOps provides reliable and comprehensive canister monitoring, including:
+
 - Automated cycle topups ⚡️ - keeping your canisters running and your customers happy
 - Email notifications ✉️ - notifying you in a variety of scenarios including when your canisters are topped up or when your account balance runs low
 - Historical canister metrics and charts 📊
@@ -37,18 +41,18 @@ CycleOps takes [less than 10 minutes ⏳ to set up](./getting-started.md) get st
 
 ### How often do you check cycles balances?
 
-Currently CycleOps checks cycles balances once every **6 hours** and performs top-ups accordingly. 
+Currently CycleOps checks cycles balances once every **6 hours** and performs top-ups accordingly.
 
 Want more frequent top-ups? Let us know at [contact@cycleops.dev](mailto:contact@cycleops.dev) or on [X](https://x.com/CycleOps).
 
 ### What does CycleOps cost?
 
-CycleOps charges a 6% margin on all canister cycles top-ups. 
+CycleOps charges a 7% margin on all canister cycles top-ups.
 
 If you pay for top-ups in:
 
 - ICP: This is reflected in the ICP per trillion cycles displayed at the top right of your CycleOps Dashboard
-- Cycles: a flat 6% fee in cycles is applied to every top-up.
+- Cycles: a flat 7% fee in cycles is applied to every top-up.
 
 ### Are there options to monitor my canister other than through the CycleOps blackhole?
 
@@ -64,13 +68,13 @@ CycleOps provides a **no-code integration** for monitoring your canisters. This 
 
 Update: As of July 2024, CycleOps now provides [additional no-code monitoring options](#are-there-options-to-monitor-my-canister-other-than-through-the-cycleops-blackhole) for developer teams depending on the type of canister you want to monitor, preferred monitoring mechanism, and visibility of metric data (public or private).
 
-For private canister metric monitoring, the CycleOps Balance Checker calls the Management Canister’s [canister_status](https://internetcomputer.org/docs/current/references/ic-interface-spec/#canister-status) API, which allows only the controller of a canister to call it. 
+For private canister metric monitoring, the CycleOps Balance Checker calls the Management Canister’s [canister_status](https://internetcomputer.org/docs/current/references/ic-interface-spec/#canister-status) API, which allows only the controller of a canister to call it.
 
 The Balance Checker canister, canister id `5vdms-kaaaa-aaaap-aa3uq-cai`, is [black-holed](#what-is-a-black-holed-canister) (has 0 controllers), and only contains code that allows it to check the status of other canisters it controls. To verify the wasm binary running in the Balance Checker and black-hole status of the canister for yourself, check out the source code at https://github.com/CycleOperators/BalanceCheckerVerification
 
 ### How can I trust the code that the CycleOps Balance Checker is running won’t change?
 
-The CycleOps Balance Checker is [black-holed](#what-is-a-black-holed-canister1), and the source code for it is public at https://github.com/CycleOperators/BalanceCheckerVerification. 
+The CycleOps Balance Checker is [black-holed](#what-is-a-black-holed-canister1), and the source code for it is public at https://github.com/CycleOperators/BalanceCheckerVerification.
 
 There, you can follow the steps listed in the repository to:
 
@@ -81,7 +85,7 @@ There, you can follow the steps listed in the repository to:
 
 A black-holed canister is akin to a traditional immutable smart contract on Ethereum. On the Internet Computer, a blackhole canister must have the following qualities:
 
-1. Has 0 controllers, controls itself, or is controlled by another blackholed canister. 
+1. Has 0 controllers, controls itself, or is controlled by another blackholed canister.
 2. Does not contain any code that would allow one to upgrade the wasm binary “code” running inside of itself.
 3. Must be open sourced with a reproducible build mechanism (in order to verify point #2).
 
@@ -100,7 +104,6 @@ Specifically [this part](https://github.com/nomeata/ic-barrier#caution). A “lo
 A fool-proof solution would either require the IC to implement named callbacks, or to send out a one shot call and then have the user canister send a one shot call back to us (it gets a bit trickier from a UX perspective). Hopefully now that the Bitcoin integration work is winding down, the named callbacks feature (when it comes out) can help us support this!
 
 https://forum.dfinity.org/t/messaging-guarantees/17154/27
-
 
 ### I'm unable to add an NNS Monitored canister, why?
 
