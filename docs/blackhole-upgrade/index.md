@@ -4,24 +4,27 @@ sidebar_position: 7
 
 # Upgrading Blackhole Monitoring
 
-New metrics are now available on CycleOps that help you understand the load of Query Calls on your canister. To access these metrics, you'll need to switch your canister from using our V1 Blackhole to the new V2 Blackhole. Our upgrade wizard will guide you through the process in about five minutes.
+New metrics are now available on CycleOps, providing in depth memory metrics about your canister from heap memory, to stable, snapshot, wasm binary, and more. To access these metrics, you'll need to switch your canister from using our V1 or V2 Blackhole to the new V3 Blackhole. Our upgrade wizard will guide you through the process in about five minutes.
 
-If you have any canisters that need to be upgraded, you will be prompted to go to the wizard when you sign in.
+If you have any canisters that are eligible for a monitoring upgrade, you will be prompted to go through the upgrade wizard when you sign in. You can alternatively upgrade monitoring metrics with the batch actions menu or on the individual canister metrics page.
 
 ## What you get for upgrading
 
-The V2 Blackhole enables the following features. Please note that some of these will be rolled out at a future date:
+The V3 Blackhole enables the following features. Please note that some of these will be rolled out at a future date:
 
 - Additional canister metrics:
-  - Number of query calls
-  - Amount of data ingress/egress via query calls
-  - WASM memory limit
-  - Reserved cycles and reserved cycles limit
-  - Canister log visibility
+  - wasm_memory_size - Heap Memory. Tracks memory used by the WebAssembly module.
+  - stable_memory_size - Captures memory stored persistently across upgrades.
+  - global_memory_size - Monitors memory allocated for global variables.
+  - wasm_binary_size - Shows the size of the deployed WebAssembly binary.
+  - custom_sections_size - Reports the size of custom sections in the Wasm binary.
+  - canister_history_size - Tracks memory used by the canister's historical data.
+  - wasm_chunk_store_size - Measures storage used by Wasm chunking mechanisms.
+  - snapshots_size - Monitors memory usage by stored snapshots.
 - New canister alerts:
-  - Receive alerts when [reserved cycles](https://forum.dfinity.org/t/increasing-subnet-storage-capacity-and-introducing-resource-reservation-mechanism/23447) approach the reserved cycles limit
+  - Configurable heap and stable memory alerts
 
-For a full technical interface of the new data available by upgrading, see the [V1 CanisterStatus](https://github.com/CycleOperators/BalanceCheckerVerification/blob/main/blackholes/v1/blackhole.mo#L23-L30) and [V2 CanisterStatus](https://github.com/CycleOperators/BalanceCheckerVerification/blob/main/blackholes/v2/blackhole.mo#L28-L38) types in our GitHub.
+For a full technical interface of the new memory data available by upgrading, see the [V3 CanisterStatus](https://github.com/CycleOperators/BalanceCheckerVerification/blob/main/blackholes/v3/src/blackhole.mo#L27-L36) types in our GitHub.
 
 ## How upgrading works
 
@@ -51,7 +54,7 @@ Of course, adding a controller to your canister is no small decision! We make th
 4. The blackhole canister's code is short and simple to read and understand.
 5. The blackhole canister can never be upgraded, ensuring all of the above in perpetuity.
 
-To read the source code and verify the WASM for yourself, visit our [blackhole verification repository](https://github.com/CycleOperators/BalanceCheckerVerification).
+To read the source code and verify the WASM of the V3 Blackhole for yourself, visit our [blackhole verification repository](https://github.com/CycleOperators/BalanceCheckerVerification).
 
 ## SNS and NNS monitored canisters
 

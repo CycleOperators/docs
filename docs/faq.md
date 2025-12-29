@@ -70,7 +70,7 @@ Update: As of July 2024, CycleOps now provides [additional no-code monitoring op
 
 For private canister metric monitoring, the CycleOps Balance Checker calls the Management Canister’s [canister_status](https://internetcomputer.org/docs/current/references/ic-interface-spec/#canister-status) API, which allows only the controller of a canister to call it.
 
-The Balance Checker canister, canister id `5vdms-kaaaa-aaaap-aa3uq-cai`, is [black-holed](#what-is-a-black-holed-canister) (has 0 controllers), and only contains code that allows it to check the status of other canisters it controls. To verify the wasm binary running in the Balance Checker and black-hole status of the canister for yourself, check out the source code at https://github.com/CycleOperators/BalanceCheckerVerification
+The Balance Checker canister, canister id `cpbhu-5iaaa-aaaad-aalta-cai`, is [black-holed](#what-is-a-black-holed-canister) (has 0 controllers), and only contains code that allows it to check the status of other canisters it controls. To verify the wasm binary running in the Balance Checker and black-hole status of the canister for yourself, check out the source code at https://github.com/CycleOperators/BalanceCheckerVerification
 
 ### How can I trust the code that the CycleOps Balance Checker is running won’t change?
 
@@ -78,8 +78,8 @@ The CycleOps Balance Checker is [black-holed](#what-is-a-black-holed-canister1),
 
 There, you can follow the steps listed in the repository to:
 
-- Verify that the wasm hash of the canister code is the same as the Balance Checker canister `5vdms-kaaaa-aaaap-aa3uq-cai` running on main net
-- Review the [Balance Checker code](https://github.com/CycleOperators/BalanceCheckerVerification/blob/main/blackhole.mo), to ensure it is not able to do anything except check the statuses of other canisters.
+- Verify that the wasm hash of the canister code is the same as the Balance Checker canister `cpbhu-5iaaa-aaaad-aalta-cai` running on main net
+- Review the [Balance Checker code](https://github.com/CycleOperators/BalanceCheckerVerification/blob/main/blackholes/v3/src/blackhole.mo), to ensure it is not able to do anything except check the statuses of other canisters.
 
 ### What is a Black-holed Canister?
 
@@ -121,4 +121,4 @@ Canisters may periodically show up as below their topup threshold for a number o
 
 1. If you don't have enough cycles to top up your canister, it won't be automatically topped up. Make sure your account is funded.
 2. Monitoring and top ups currently occur once every 6 hours. If you can't wait for the next monitoring and top up round to occur, you can execute a manual cycles topup at any time.
-3. CycleOps does not automatically top up "pending" canisters, as it doesn't have a way to record their cycle balances.
+3. CycleOps does not automatically top up canisters that haven't complete verification and have a "pending" status, as it doesn't have a way to record their cycle balances.
