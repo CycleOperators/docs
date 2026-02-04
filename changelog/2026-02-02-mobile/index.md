@@ -49,9 +49,6 @@ Open CycleOps on your phone and try the “real” workflows:
 
 If you’ve never used CycleOps before: it’s a proactive canister management layer for the Internet Computer — monitoring, alerts, and top-ups — designed to reduce operational overhead and prevent surprise outages.
 
-**Read the detailed release notes:**  
-https://forum.dfinity.org/t/meet-cycleops-proactive-automated-no-code-canister-management-for-the-internet-computer/20969/23
-
 **Try CycleOps:**  
 https://cycleops.dev  
 https://icptopup.com
