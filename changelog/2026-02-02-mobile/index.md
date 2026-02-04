@@ -9,9 +9,7 @@ authors: [jorgen]
 
 [![](./mobile-internal.png)](/changelog/mobile)
 
-We’ve shipped a broad set of mobile UX improvements across CycleOps — the takeaway is simple:
-
-**CycleOps is now genuinely easy to use on your phone.**
+We’ve shipped a broad set of mobile UX improvements, and CycleOps is now genuinely easy to use on your phone.
 
 <!-- truncate -->
 
@@ -26,13 +24,13 @@ A sweep of mobile-focused fixes across the CycleOps web app, including:
 - Improved forms and action flows (top-ups, canister actions, etc.)
 - Better tap targets, spacing, and readability across the app
 
-(If you’ve ever tried to do “real work” in a mobile browser and bounced — this release is specifically aimed at that.)
+So often when you want to do “real work” in a mobile browser, you find unoptimized UIs are forced to bounce. We want to make sure this doesn't happen when managing your canisters on CycleOps.
 
 ## Why it matters
 
-CycleOps is operational tooling. And operational tooling is most valuable when you’re _not_ at your desk.
+CycleOps is operational tooling. And operational tooling is most valuable when you’re _not at your desk_.
 
-This update turns a bunch of “I’ll deal with it later” moments into “handled in 20 seconds”:
+This update turns a bunch of “I’ll deal with it later” moments into “handled in 20 seconds” success stories:
 
 - You notice something looks off → you can check it immediately.
 - You’re mid-day, mid-errand, mid-anything → you can still take action.
@@ -47,7 +45,7 @@ Open CycleOps on your phone and try the “real” workflows:
 - Deploy or manage a canister when you’re away from your laptop
 - Keep building on ICP (and keep your canisters healthy) wherever you are
 
-If you’ve never used CycleOps before: it’s a proactive canister management layer for the Internet Computer — monitoring, alerts, and top-ups — designed to reduce operational overhead and prevent surprise outages.
+If you’ve never used CycleOps before: it’s a proactive canister management layer for the Internet Computer (monitoring, alerts, and top-ups) designed to reduce operational overhead and prevent surprise outages.
 
 **Try CycleOps:**  
 https://cycleops.dev  
