@@ -31,7 +31,7 @@ For a full technical interface of the new memory data available by upgrading, se
 The basic steps to upgrade from the blackhole are as follows:
 
 1. Add the new blackhole as a controller of your canister.
-2. Notify CycleOps of this change.
+2. Click "Verify" (in the CycleOps UI upgrade wizard) to notify CycleOps of this change.
 3. Remove the old blackhole.
 
 Our upgrade wizard makes this process simple by providing you with easy CLI commands and batching the upgrade process for multiple canisters at a time. It will only take a couple of minutes to complete the upgrade for all of your canisters, and you can selectively upgrade on a per-canister basis if preferred.
