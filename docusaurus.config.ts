@@ -7,6 +7,10 @@ const config: Config = {
   title: "CycleOps",
   tagline: "Decentralized compute made easy",
   favicon: "/img/cycleops.png",
+  markdown: {
+    mermaid: true,
+  },
+  themes: ["@docusaurus/theme-mermaid"],
 
   // Set the production url of your site here
   url: process.env.VERCEL_URL
