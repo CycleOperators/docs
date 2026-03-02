@@ -1,8 +1,20 @@
-# Mermaid Diagrams Demo
+---
+slug: mermaid-diagrams
+title: "Mermaid Diagram Support in Docs"
+date: 2026-03-02
+summary: "Our docs now support Mermaid diagrams — flowcharts, sequence diagrams, ER diagrams, and more, right in Markdown."
+authors: [jorgen]
+---
 
-This page demonstrates the various Mermaid diagram types available in our docs. Use these as reference when writing documentation.
+We've added [Mermaid](https://mermaid.js.org/) diagram support to our documentation site. You can now embed rich, interactive diagrams directly in Markdown using fenced code blocks.
 
-## Flowchart
+<!-- truncate -->
+
+## What's supported
+
+Here's a showcase of the diagram types you can now use:
+
+### Flowcharts
 
 ```mermaid
 flowchart TD
@@ -15,7 +27,7 @@ flowchart TD
     F --> G[Automatic cycle management]
 ```
 
-## Sequence Diagram
+### Sequence Diagrams
 
 ```mermaid
 sequenceDiagram
@@ -33,7 +45,7 @@ sequenceDiagram
     CycleOps-->>User: Send alert notification
 ```
 
-## State Diagram
+### State Diagrams
 
 ```mermaid
 stateDiagram-v2
@@ -48,7 +60,7 @@ stateDiagram-v2
     Done --> [*]
 ```
 
-## Entity Relationship Diagram
+### Entity Relationship Diagrams
 
 ```mermaid
 erDiagram
@@ -72,7 +84,7 @@ erDiagram
     TOPUP_RULE ||--o{ CANISTER : applies_to
 ```
 
-## Gantt Chart
+### Gantt Charts
 
 ```mermaid
 gantt
@@ -89,7 +101,7 @@ gantt
         Deploy            :c2, after c1, 3d
 ```
 
-## Pie Chart
+### Pie Charts
 
 ```mermaid
 pie title Cycle Spend by Canister Type
@@ -99,7 +111,7 @@ pie title Cycle Spend by Canister Type
     "Other" : 10
 ```
 
-## Git Graph
+### Git Graphs
 
 ```mermaid
 gitGraph
@@ -112,9 +124,6 @@ gitGraph
     commit id: "hotfix"
 ```
 
----
+## How to use it
 
-:::tip
-To use Mermaid in any doc page, wrap your diagram code in a ` ```mermaid ` fenced code block.
-See the [Mermaid docs](https://mermaid.js.org/) for the full syntax reference.
-:::
+Wrap your diagram code in a ` ```mermaid ` fenced code block in any Markdown file — docs or changelog. See the [Mermaid docs](https://mermaid.js.org/) for the full syntax reference.
