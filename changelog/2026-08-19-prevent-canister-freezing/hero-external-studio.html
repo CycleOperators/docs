@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prevent Canister Freezing with Smarter Top-up Rules</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+    body { background: #d8e7ef; font-family: Arial, Helvetica, sans-serif; }
+    .hero {
+      position: relative; width: 100vw; height: 100vh; overflow: hidden;
+      background: url("./prevent-canister-freezing-internal.png") center center / cover no-repeat;
+    }
+    .title {
+      position: absolute; left: 2.5vw; top: 3.8vh; width: 73vw;
+      color: #090909; font-size: 5.8vw; line-height: .92; font-weight: 900;
+      letter-spacing: -.25vw; text-transform: none;
+      -webkit-text-stroke: .24vw rgba(255,255,255,.92);
+      paint-order: stroke fill;
+      text-shadow: 0 4px 18px rgba(255,255,255,.45), 0 2px 4px rgba(0,0,0,.18);
+    }
+    .site {
+      position: absolute; top: 4.5vh; right: 2.5vw; color: white; background: #080808;
+      border: .21vw solid rgba(255,255,255,.95); border-radius: 1.42vw;
+      padding: 1.05vh 1.2vw 1.15vh; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 2vw; line-height: 1; letter-spacing: .04vw;
+      box-shadow: 0 2px 12px rgba(0,0,0,.35);
+    }
+    .brands {
+      position: absolute; right: 2.9vw; bottom: 3.55vh; display: flex; align-items: center; gap: .95vw;
+    }
+    .cycleops-mark { width: 3.85vw; height: 3.85vw; object-fit: contain; filter: drop-shadow(0 2px 3px rgba(0,0,0,.28)); }
+    .slash { font-size: 2.75vw; line-height: 1; font-weight: 500; color: #111; text-shadow: 0 1px 4px rgba(255,255,255,.65); }
+    .icp-circle {
+      width: 4.17vw; height: 4.17vw; border-radius: 50%; background: white; overflow: hidden;
+      display: flex; align-items: center; box-shadow: 0 2px 8px rgba(0,0,0,.24);
+    }
+    .icp-circle img { width: 11.8vw; height: 1.5vw; max-width: none; object-fit: contain; object-position: left center; margin-left: .33vw; }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="title">Prevent Canister<br />Freezing with Smarter<br />Top-up Rules</div>
+    <div class="site">cycleops.dev</div>
+    <div class="brands">
+      <img class="cycleops-mark" src="/static/img/cycleops.png" alt="" />
+      <span class="slash">/</span>
+      <span class="icp-circle"><img src="/static/icp.png" alt="" /></span>
+    </div>
+  </div>
+</body>
+</html>
