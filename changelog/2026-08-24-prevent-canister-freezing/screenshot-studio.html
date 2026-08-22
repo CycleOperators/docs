@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CycleOps Smart Top-up Suggestions</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #09090b;
+      --panel: #0c0c0f;
+      --border: #27272a;
+      --soft-border: #202024;
+      --text: #fafafa;
+      --muted: #a1a1aa;
+      --dim: #71717a;
+      --orange: #ea580c;
+      --orange-text: #fb923c;
+      --green: #10b981;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 14px;
+      -webkit-font-smoothing: antialiased;
+    }
+    button, input { font: inherit; }
+    .app { width: 100vw; height: 100vh; display: flex; background: var(--bg); padding: 8px; gap: 8px; }
+    .sidebar {
+      width: 244px; flex: 0 0 244px; height: calc(100vh - 16px); border: 1px solid var(--border);
+      border-radius: 10px; display: flex; flex-direction: column; background: #0c0c0e;
+      padding: 8px; overflow: hidden;
+    }
+    .account {
+      height: 48px; border-radius: 7px; padding: 0 9px; display: flex; align-items: center;
+      gap: 10px; font-weight: 600; background: transparent;
+    }
+    .logo-wrap {
+      width: 31px; height: 31px; border-radius: 7px; display: grid; place-items: center;
+      overflow: hidden; background: #18181b;
+    }
+    .logo { width: 31px; height: 31px; object-fit: cover; }
+    .chev { margin-left: auto; color: var(--muted); font-size: 14px; }
+    .nav-group { padding-top: 9px; }
+    .nav-item {
+      position: relative; height: 40px; border-radius: 6px; display: flex; align-items: center;
+      gap: 11px; padding: 0 10px; color: #d4d4d8; margin-bottom: 3px;
+    }
+    .nav-item.active { background: rgba(39,39,42,.72); color: white; box-shadow: inset 0 0 0 1px rgba(63,63,70,.65); }
+    .nav-icon { width: 18px; height: 18px; color: #a1a1aa; display: grid; place-items: center; }
+    .nav-icon svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+    .nav-action { margin-left: auto; color: #71717a; display: flex; align-items: center; }
+    .nav-action svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+    .sidebar-spacer { flex: 1; min-height: 12px; }
+    .notice {
+      position: relative; border: 1px solid rgba(251,146,60,.25); background: rgba(234,88,12,.1);
+      border-radius: 8px; padding: 12px 28px 12px 37px; font-size: 12px; line-height: 1.45;
+      margin: 0 2px 8px;
+    }
+    .notice-icon { position: absolute; left: 12px; top: 12px; color: var(--orange-text); }
+    .notice-close { position: absolute; right: 9px; top: 7px; color: var(--muted); font-size: 17px; }
+    .notice-title { font-weight: 700; margin-bottom: 5px; }
+    .notice-link { margin-top: 7px; text-decoration: underline; text-underline-offset: 2px; color: white; }
+    .secondary { padding-top: 4px; border-top: 1px solid var(--soft-border); }
+    .secondary .nav-item { height: 35px; font-size: 13px; margin-bottom: 1px; }
+    .user-row { border-top: 1px solid var(--soft-border); margin-top: 6px; padding-top: 7px; }
+    .user-button { height: 42px; border-radius: 7px; display: flex; align-items: center; gap: 10px; padding: 0 9px; }
+    .avatar { width: 29px; height: 29px; border-radius: 7px; background: #27272a; display: grid; place-items: center; font-size: 12px; font-weight: 700; }
+    .user-copy { min-width: 0; }
+    .user-name { font-size: 12.5px; font-weight: 600; }
+    .user-detail { font-size: 10.5px; color: var(--muted); margin-top: 2px; }
+    .main { min-width: 0; flex: 1; height: calc(100vh - 16px); border-radius: 10px; overflow: hidden; background: #09090b; }
+    .current-page { display: block; width: 100%; height: auto; max-height: 100%; object-fit: contain; object-position: top left; }
+    .primary-btn, .outline-btn {
+      border-radius: 6px; height: 36px; padding: 0 15px; border: 1px solid transparent; font-weight: 600;
+    }
+    .primary-btn { background: #fafafa; color: #18181b; }
+    .outline-btn { color: #f4f4f5; background: transparent; border-color: #3f3f46; }
+    .overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,.72); display: flex;
+      align-items: center; justify-content: center; padding: 16px;
+    }
+    .dialog {
+      width: 896px; max-height: calc(100vh - 32px); background: #0c0c0f; border: 1px solid #323238;
+      border-radius: 9px; overflow: hidden; box-shadow: 0 28px 90px rgba(0,0,0,.72);
+      display: flex; flex-direction: column;
+    }
+    .review-dialog { position: relative; }
+    .dialog-close { position: absolute; right: 18px; top: 14px; color: var(--muted); font-size: 20px; }
+    .dialog-head { padding: 23px 24px 16px; }
+    .dialog-title { margin: 0; font-size: 18px; letter-spacing: -.01em; font-weight: 650; }
+    .dialog-desc { color: var(--muted); font-size: 13px; margin: 7px 0 0; line-height: 1.45; }
+    .suggestion {
+      margin-top: 16px; min-height: 44px; border: 1px solid rgba(251,146,60,.25);
+      background: rgba(234,88,12,.05); border-radius: 7px; padding: 11px 14px 11px 43px;
+      position: relative; font-size: 13px; line-height: 1.45;
+    }
+    .suggestion svg { position: absolute; left: 15px; top: 13px; color: var(--orange-text); }
+    .suggestion strong { font-weight: 650; }
+    .review-head, .review-row {
+      display: grid; grid-template-columns: minmax(10rem,1.4fr) minmax(7.5rem,.8fr) minmax(7.5rem,.8fr) minmax(9rem,1fr) minmax(9rem,1fr);
+      gap: 16px; align-items: center;
+    }
+    .review-head {
+      padding: 11px 64px 11px 24px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      background: rgba(24,24,27,.38); color: var(--muted); font-size: 11px; font-weight: 600; line-height: 1.3;
+    }
+    .review-body { padding: 14px 24px 14px 16px; display: flex; flex-direction: column; gap: 10px; }
+    .review-row {
+      min-height: 96px; border: 1px solid var(--border); border-radius: 8px;
+      padding: 14px 48px 14px 16px; position: relative;
+    }
+    .exclude { position: absolute; right: 13px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 20px; }
+    .can-name { font-weight: 590; }
+    .principal { color: var(--muted); font-size: 10.5px; margin-top: 4px; letter-spacing: .01em; }
+    .risk-badge {
+      margin-top: 8px; width: fit-content; border: 1px solid rgba(251,146,60,.4);
+      background: rgba(234,88,12,.05); color: var(--orange-text); border-radius: 999px;
+      padding: 3px 7px; font-size: 10.5px;
+    }
+    .tc { font-variant-numeric: tabular-nums; }
+    .input-wrap { position: relative; }
+    .rule-input {
+      width: 100%; height: 38px; border: 1px solid #3f3f46; background: #09090b;
+      color: var(--text); border-radius: 6px; padding: 0 36px 0 11px; outline: none;
+      font-variant-numeric: tabular-nums;
+    }
+    .unit { position: absolute; inset: 0 11px 0 auto; display: flex; align-items: center; color: var(--muted); font-size: 11px; }
+    .dialog-footer { min-height: 65px; padding: 13px 16px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: flex-end; gap: 9px; }
+    .success-wrap { padding: 31px 24px 17px; display: flex; min-height: 0; flex-direction: column; }
+    .success-head { text-align: center; }
+    .success-icon { width: 48px; height: 48px; color: var(--green); margin: 0 auto; }
+    .success-title { padding-top: 10px; margin: 0; font-size: 24px; letter-spacing: -.025em; }
+    .success-desc { color: var(--muted); margin-top: 7px; }
+    .success-list { margin-top: 22px; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+    .success-row { min-height: 62px; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.5fr); align-items: center; gap: 12px; padding: 13px 16px; border-bottom: 1px solid var(--border); }
+    .success-row:last-child { border-bottom: 0; }
+    .success-name { display: flex; align-items: center; gap: 11px; font-weight: 600; }
+    .success-check { color: var(--green); font-size: 16px; }
+    .success-summary { color: var(--muted); font-size: 13px; }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="account">
+        <div class="logo-wrap"><img class="logo" src="/static/img/cycleops.png" alt="" /></div>
+        <span>My Account</span><span class="chev">⌄</span>
+      </div>
+      <nav class="nav-group">
+        <div class="nav-item active"><span class="nav-icon"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="7" ry="3"></ellipse><path d="M5 5v7c0 1.7 3.1 3 7 3s7-1.3 7-3V5"></path><path d="M5 12v7c0 1.7 3.1 3 7 3s7-1.3 7-3v-7"></path></svg></span><span>Canisters</span></div>
+        <div class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z"></path><path d="m4 7.5 8 4.5 8-4.5M12 12v9"></path></svg></span><span>Projects</span></div>
+        <div class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-4V21a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1L4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9A1.7 1.7 0 0 0 3 14H2.8v-4H3a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9L4.2 7 7 4.2l.1.1a1.7 1.7 0 0 0 1.9.3A1.7 1.7 0 0 0 10 3V2.8h4V3a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1L19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9A1.7 1.7 0 0 0 21 10h.2v4H21a1.7 1.7 0 0 0-1.6 1Z"></path></svg></span><span>Settings</span><span class="nav-action"><svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"></path></svg></span></div>
+        <div class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 10h18"></path></svg></span><span>Billing</span><span class="nav-action"><svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"></path></svg></span></div>
+      </nav>
+      <div class="sidebar-spacer"></div>
+      <div id="sidebar-notice" class="notice">
+        <span class="notice-icon">⚠</span><span class="notice-close">×</span>
+        <div class="notice-title">Top-up thresholds need attention</div>
+        <div>4 canisters have a freezing threshold within 20% of their top-up threshold.</div>
+        <div class="notice-link">Review top-up rules</div>
+      </div>
+      <nav class="secondary">
+        <div class="nav-item"><span class="nav-icon">⌨</span><span>Keyboard Shortcuts</span></div>
+        <div class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11v17H6.5A2.5 2.5 0 0 0 4 22V5.5ZM20 5.5A2.5 2.5 0 0 0 17.5 3H13v17h4.5A2.5 2.5 0 0 1 20 22V5.5Z"></path></svg></span><span>Documentation</span></div>
+        <div class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="3"></circle><path d="m5.6 5.6 4.3 4.3M14.1 14.1l4.3 4.3M18.4 5.6l-4.3 4.3M9.9 14.1l-4.3 4.3"></path></svg></span><span>Support</span></div>
+        <div class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4 20-7Z"></path><path d="M22 2 11 13"></path></svg></span><span>Feedback</span></div>
+      </nav>
+      <div class="user-row">
+        <div class="user-button"><div class="avatar">AC</div><div class="user-copy"><div class="user-name">My Account</div><div class="user-detail">Personal workspace</div></div><span class="chev">•••</span></div>
+      </div>
+    </aside>
+    <main class="main"><img class="current-page" src="./current-canisters-reference.png" alt="Synthetic CycleOps canister fleet" /></main>
+  </div>
+
+  <div id="review" class="overlay" style="display:none">
+    <section class="dialog review-dialog">
+      <span class="dialog-close">×</span>
+      <div class="dialog-head">
+        <h2 class="dialog-title">Update at-risk top-up rules</h2>
+        <p class="dialog-desc">These canisters have a freezing threshold at least 80% of their current top-up threshold. Review the suggested values before updating.</p>
+        <div class="suggestion">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>
+          <strong>Suggested values:</strong> top-up threshold = 2× freezing threshold · target balance = 2.5× freezing threshold
+        </div>
+      </div>
+      <div class="review-head"><div>Canister</div><div>[Current] Top-up Threshold</div><div>Freezing threshold</div><div>[New] Top-up threshold</div><div>[New] Target Cycles Balance</div></div>
+      <div class="review-body">
+        <div class="review-row"><span class="exclude">×</span><div><div class="can-name">API Gateway Service</div><div class="principal">vpyes-3yaaa-aaaak-aaxpq-cai</div><div class="risk-badge">93% of top-up threshold</div></div><div class="tc">0.3 TC</div><div class="tc">0.28 TC</div><div class="input-wrap"><input class="rule-input" value="0.6" readonly /><span class="unit">TC</span></div><div class="input-wrap"><input class="rule-input" value="0.7" readonly /><span class="unit">TC</span></div></div>
+        <div class="review-row"><span class="exclude">×</span><div><div class="can-name">Configuration Cache Service</div><div class="principal">q6c6a-7yaaa-aaaak-aaxsa-cai</div><div class="risk-badge">90% of top-up threshold</div></div><div class="tc">6 TC</div><div class="tc">5.4 TC</div><div class="input-wrap"><input class="rule-input" value="10.8" readonly /><span class="unit">TC</span></div><div class="input-wrap"><input class="rule-input" value="13.5" readonly /><span class="unit">TC</span></div></div>
+        <div class="review-row"><span class="exclude">×</span><div><div class="can-name">Scheduler Service</div><div class="principal">x2gyj-fqaaa-aaaak-aaxva-cai</div><div class="risk-badge">90% of top-up threshold</div></div><div class="tc">2 TC</div><div class="tc">1.8 TC</div><div class="input-wrap"><input class="rule-input" value="3.6" readonly /><span class="unit">TC</span></div><div class="input-wrap"><input class="rule-input" value="4.5" readonly /><span class="unit">TC</span></div></div>
+        <div class="review-row"><span class="exclude">×</span><div><div class="can-name">Status Monitor Service</div><div class="principal">ktcsm-dyaaa-aaaak-aaxyq-cai</div><div class="risk-badge">87% of top-up threshold</div></div><div class="tc">9 TC</div><div class="tc">7.8 TC</div><div class="input-wrap"><input class="rule-input" value="15.6" readonly /><span class="unit">TC</span></div><div class="input-wrap"><input class="rule-input" value="19.5" readonly /><span class="unit">TC</span></div></div>
+      </div>
+      <div class="dialog-footer"><button class="outline-btn">Cancel</button><button class="primary-btn">Update 4 top-up rules</button></div>
+    </section>
+  </div>
+
+  <div id="success" class="overlay" style="display:none">
+    <section class="dialog" style="width:820px">
+      <div class="success-wrap">
+        <div class="success-head">
+          <svg class="success-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 2.6 2.6L16.5 9"></path></svg>
+          <h2 class="success-title">Top-up rules updated</h2>
+          <div class="success-desc">4 canister top-up rules were updated successfully.</div>
+        </div>
+        <div class="success-list">
+          <div class="success-row"><div class="success-name"><span class="success-check">✓</span>API Gateway Service</div><div class="success-summary">Top up to 0.7 TC when below 0.6 TC</div></div>
+          <div class="success-row"><div class="success-name"><span class="success-check">✓</span>Configuration Cache Service</div><div class="success-summary">Top up to 13.5 TC when below 10.8 TC</div></div>
+          <div class="success-row"><div class="success-name"><span class="success-check">✓</span>Scheduler Service</div><div class="success-summary">Top up to 4.5 TC when below 3.6 TC</div></div>
+          <div class="success-row"><div class="success-name"><span class="success-check">✓</span>Status Monitor Service</div><div class="success-summary">Top up to 19.5 TC when below 15.6 TC</div></div>
+        </div>
+      </div>
+      <div class="dialog-footer"><button class="primary-btn">Done</button></div>
+    </section>
+  </div>
+
+  <script>
+    const state = new URLSearchParams(location.search).get('state') || 'dashboard';
+    if (state === 'review') document.querySelector('#review').style.display = 'flex';
+    if (state === 'success') document.querySelector('#success').style.display = 'flex';
+  </script>
+</body>
+</html>

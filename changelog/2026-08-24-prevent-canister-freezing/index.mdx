@@ -1,0 +1,45 @@
+---
+slug: prevent-canister-freezing
+title: "Prevent Canister Freezing with Smarter Top-up Rules"
+date: 2026-08-24
+summary: "Stay ahead of canister freezing threshold with smart top-up rule suggestions"
+image: ./prevent-canister-freezing-external.jpg
+authors: [byron]
+---
+
+[![](./prevent-canister-freezing-internal.png)](/changelog/prevent-canister-freezing)
+
+As your canister's memory increases, so does its freezing threshold - which can result in a frozen canister
+if you don't regularly update your canister top-up configurations. Now you can stay ahead of changing canister freezing thresholds
+with CycleOps' new smart, safer top-up rule suggestions that are easy to review and apply.
+
+<!-- truncate -->
+
+## Review at-risk rules
+
+When a freezing threshold reaches at least 80% of its top-up threshold, CycleOps displays a notification on the canisters page.
+
+![CycleOps notification showing four top-up rules that need attention.](./smart-topup-suggestion-notification.jpg)
+
+Open the notification to review every affected canister together. CycleOps suggests:
+
+- A top-up threshold equal to 2× the freezing threshold
+- A target balance equal to 2.5× the freezing threshold
+
+You can edit the values or exclude individual canisters before applying the update.
+
+![CycleOps review dialog with suggested top-up thresholds and target balances.](./smart-topup-suggestion-review.jpg)
+
+Updates are applied together, with a confirmation showing the resulting rule for each canister.
+
+![CycleOps confirmation after updating four top-up rules.](./smart-topup-suggestion-success.jpg)
+
+## What's next for Adaptive Monitoring
+
+We're exploring ways to make these suggestions more adaptive by considering each canister's burn rate and your desired maintenance buffer—not only its freezing threshold.
+
+We're also looking into monitoring agents that can scale and adjust monitoring configurations across your canister fleet. You would be notified about every update, keeping you in control and in the loop while you stay focused on building great dapps.
+
+Give us your [feedback](https://x.com/CycleOps) on what types of adaptive monitoring features you'd find useful.
+
+[Sign in to CycleOps](https://cycleops.dev) to review your top-up rules, or read our [top-up rule guide](https://docs.cycleops.dev/docs/basics/topup-rules).
