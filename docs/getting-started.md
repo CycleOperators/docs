@@ -2,6 +2,9 @@
 sidebar_position: 1
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Getting Started
 
 Hey there, welcome to CycleOps 👋
@@ -52,7 +55,26 @@ The CycleOps Balance Checker is black-holed and can only check the status of can
 
     **Before continuing with verification**, if you run into any issues or are unsure about adding the Balance Checker as a controller, please reach out to us at [contact@cycleops.dev](mailto:contact@cycleops.dev).
 
-    If you're ready to continue, copy and run the dfx command provided to you, which will set the Balance Checker as a controller of your canister, and then click "Verify Controller" to confirm that you have completed this action.
+    If you're ready to continue, add the Balance Checker principal shown in CycleOps as a controller of your canister:
+
+    <Tabs groupId="cli">
+    <TabItem value="icp-cli" label="ICP CLI">
+
+    ```bash
+    icp canister settings update <canister_id> --add-controller <balance_checker_principal> -n ic
+    ```
+
+    </TabItem>
+    <TabItem value="dfx" label="DFX">
+
+    ```bash
+    dfx canister --ic update-settings --add-controller <balance_checker_principal> <canister_id>
+    ```
+
+    </TabItem>
+    </Tabs>
+
+    Then click "Verify Controller" to confirm that you have completed this action.
 
 ![Verify Controller](./img/verify.png)
 
