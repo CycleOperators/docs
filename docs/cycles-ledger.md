@@ -2,6 +2,9 @@
 sidebar_position: 4
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Bring your own Cycles
 
 Dfinity has released [the new cycles ledger canister](https://forum.dfinity.org/t/improving-the-cycle-management-experience/19895), enabling principals to hold cycles and greatly increasing the utility of Cycles as a token. 
@@ -11,10 +14,9 @@ This article will introduce you to using the cycles ledger, teach you how to mig
 
 ### Prerequisites
 <aside>
-**DFX 0.18.0 Recommended**
-This article assumes you are using DFX version 0.18.0 or greater. You can get by with earlier versions, but 0.18.0 makes things a little easier!
+**A current command-line tool is recommended**
 
-[Migrate to dfx >= 0.18.0 with the dfx version manager, dvxvm](https://forum.dfinity.org/t/the-dfx-version-manager-dfxvm-version-1-0-0-is-released/27720)
+You can follow this article with [ICP CLI](https://cli.internetcomputer.org/) or DFX. Choose your CLI in any tabbed command. The legacy cycles wallet migration still requires DFX because it uses `dfx wallet`.
 
 </aside>
 
@@ -22,11 +24,98 @@ This article assumes you are using DFX version 0.18.0 or greater. You can get by
 
 The steps to setup the cycles ledger as your new payment method varies depending on where you’re holding your cycles. The first step is to move your cycles from wherever they are now to their new home on the cycles ledger canister. Follow the table of contents below to find the right jumping off point for you.
 
+- [Approving CycleOps To Top-Up With Your Cycles](#approving-cycleops-to-top-up-with-your-cycles)
 - [Migrating Cycles from XTC to the new Dfinity Cycles Ledger](#migrating-cycles-from-xtc-to-the-new-dfinity-cycles-ledger)
 - [Migrating from Cycles Wallet to the new Dfinity Cycles Ledger](#migrating-from-cycles-wallet-to-the-new-dfinity-cycles-ledger)
-- [Approving CycleOps To Top-Up With Your Cycles on the Cycle Ledger](#approving-cycleops-to-top-up-with-your-cycles-on-the-cycle-ledger)
 
 ---
+
+## Approving CycleOps To Top-Up With Your Cycles
+
+Once you have your cycles on the cycles ledger, you can use them as your payment method within CycleOps by granting an approval. This allows CycleOps to spend cycles on your behalf.
+
+CycleOps supports Plug, DFX, or ICP CLI for this payment method.
+
+### With Plug
+
+You can hold your cycles on the cycles ledger in Plug by clicking “add token” and then searching for “Trillion Cycles”, which should have the same logo as the image on the right
+
+If for any reason Trillion Cycles does not appear, you can add the cycles ledger as a custom token via its canister id (`um5iw-rqaaa-aaaaq-qaaba-cai`). Note that Plug displays the cycles ledger token as “Trillion Cycles” in their UIs.
+
+Once you have your tokens ready in your Plug wallet, you’re ready to begin.
+
+1. Navigate to [the CycleOps billing page](https://cycleops.dev/app/personal/billing/payment-method) and select “change payment method.”
+2. Connect your Plug wallet and follow the prompts.
+3. Select the amount that you’d like to approve CycleOps to spend.
+4. Success! 🎉
+
+### With a CLI
+
+Both DFX and ICP CLI can manage cycles held by your principal on the cycles ledger. If your cycles are not yet on the ledger, follow one of the migration guides below, then return here.
+
+1. Navigate to [the CycleOps billing page](https://cycleops.dev/app/personal/billing/payment-method) and select “change payment method.”
+2. Select “manual approval” and paste in your principal. You can obtain it with:
+
+   <Tabs groupId="cli">
+   <TabItem value="icp-cli" label="ICP CLI">
+
+   ```bash
+   icp identity principal
+   ```
+
+   </TabItem>
+   <TabItem value="dfx" label="DFX">
+
+   These steps require DFX 0.18.0 or greater. You can [upgrade with the DFX version manager, dfxvm](https://forum.dfinity.org/t/the-dfx-version-manager-dfxvm-version-1-0-0-is-released/27720).
+
+   ```bash
+   dfx identity get-principal
+   ```
+
+   </TabItem>
+   </Tabs>
+
+3. Approve CycleOps to spend the amount you choose on your behalf. The examples below approve one trillion cycles:
+
+   <Tabs groupId="cli">
+   <TabItem value="icp-cli" label="ICP CLI">
+
+   ```bash
+   icp token um5iw-rqaaa-aaaaq-qaaba-cai approve 1 qc4nb-ciaaa-aaaap-aawqa-cai -n ic
+   ```
+
+   ICP CLI reads the cycles ledger's token metadata, so `1` represents one Trillion Cycles (1 TC).
+
+   </TabItem>
+   <TabItem value="dfx" label="DFX">
+
+   ```bash
+   dfx cycles approve qc4nb-ciaaa-aaaap-aawqa-cai 1_000_000_000_000
+   ```
+
+   </TabItem>
+   </Tabs>
+
+4. Finally, you will be asked to verify the CycleOps principal which has permission to spend your funds. Follow the prompts, which will provide a command for you to run that looks like this one:
+
+   <Tabs groupId="cli">
+   <TabItem value="icp-cli" label="ICP CLI">
+
+   ```bash
+   icp canister call -n ic qc4nb-ciaaa-aaaap-aawqa-cai verifyOwnershipOfCycleLedgerPrincipal '(record { cycleOpsCustomerPrincipal = principal "YOUR_CYCLEOPS_PRINCIPAL" })'
+   ```
+
+   </TabItem>
+   <TabItem value="dfx" label="DFX">
+
+   ```bash
+   dfx canister --ic call qc4nb-ciaaa-aaaap-aawqa-cai verifyOwnershipOfCycleLedgerPrincipal '(record { cycleOpsCustomerPrincipal = principal "YOUR_CYCLEOPS_PRINCIPAL" })'
+   ```
+
+   </TabItem>
+   </Tabs>
+
+5. Success! 🎉
 
 ## Migrating Cycles from XTC to the new Dfinity Cycles Ledger
 
@@ -38,7 +127,7 @@ In order to migrate from [XTC](https://dank.ooo/xtc/) to the new Dfinity Cycles 
 
 **Steps:**
 
-First, transfer your XTC tokens to your dfx principal from whichever wallet holds them. We recommend using a dfx principal which is encrypted and backed up whenever handling significant funds. If you're already using dfx to hold your XTC, then you're ready to start.
+This legacy migration is DFX-only because it depends on a cycles wallet managed by `dfx wallet`. First, transfer your XTC tokens to your DFX principal from whichever wallet holds them. We recommend using a DFX principal which is encrypted and backed up whenever handling significant funds. If you're already using DFX to hold your XTC, then you're ready to start.
 
 1. **Get balance of XTC.** You should see your whole cycles balance represented in the response.
 
@@ -76,7 +165,7 @@ The cycles wallet canister is a tool released by Dfinity and integrated into dfx
 
 Before proceeding, ensure you have your cycles ready to go in your wallet canister.
 
-1. **Check your "before" balance on the new Dfinity cycles ledger.** This will be a useful benchmark when we wish to confirm receipt in future steps. The new `dfx cycles` command makes this very easy.
+1. **Check your "before" balance on the new Dfinity cycles ledger.** This will be a useful benchmark when we wish to confirm receipt in future steps.
 
 ```bash
 dfx cycles balance --ic
@@ -90,92 +179,13 @@ dfx cycles balance --ic
 dfx canister call --ic um5iw-rqaaa-aaaaq-qaaba-cai deposit "(record { to = record { owner = principal \"$(dfx identity get-principal)\"} })" --with-cycles 1_000_000_000_000 --wallet $(dfx identity get-wallet --ic)
 ```
 
-1. **Check your balance on the new Dfinity cycles ledger again.** You should see the updated balance. Again, the new `dfx cycles` command comes in very handy.
+1. **Check your balance on the new Dfinity cycles ledger again.** You should see the updated balance.
 
 ```bash
 dfx cycles balance --ic
 ```
 
 Success! Your cycles have been migrated onto the cycles ledger! 🎉
-
-## Approving CycleOps To Top-Up With Your Cycles
-
-Once you have your cycles on the cycles ledger, you can use them as your payment method within CycleOps by granting an approval. This allows CycleOps to spend cycles on your behalf.
-
-CycleOps supports Plug or DFX as wallets for this new payment method.
-
-### With Plug
-
-You can hold your cycles on the cycles ledger in Plug by clicking “add token” and then searching for “Trillion Cycles”, which should have the same logo as the image on the right
-
-If for any reason Trillion Cycles does not appear, you can add the cycles ledger as a custom token via its canister id (`um5iw-rqaaa-aaaaq-qaaba-cai`). Note that Plug displays the cycles ledger token as “Trillion Cycles” in their UIs.
-
-Once you have your tokens ready in your Plug wallet, you’re ready to begin.
-
-1. Navigate to [the CycleOps billing page](https://cycleops.dev/app/personal/billing/payment-method) and select “change payment method.”
-2. Connect your Plug wallet and follow the prompts.
-3. Select the amount that you’d like to approve CycleOps to spend.
-4. Success! 🎉
-
-### With DFX
-
-With the new `dfx cycles` commands, DFX is a great way to hold your cycles. Follow our guides above on how to migrate your cycles into dfx, then you’re ready to get started.
-
-1. Navigate to [the CycleOps billing page](https://cycleops.dev/app/personal/billing/payment-method) and select “change payment method.”
-2. Select “manual approval” and paste in your dfx principal. (You can attain your principal by running `dfx identity get-principal`.
-3. You will be asked to approve CycleOps to spend cycles on your behalf. If you have the latest version of dfx, you can use this command:
-
-   ```bash
-   dfx cycles approve qc4nb-ciaaa-aaaap-aawqa-cai 1_000_000_000_000
-   ```
-
-   Otherwise, you can call the cycles ledger canister directly to grant an approval:
-
-   ```bash
-   dfx canister --ic call um5iw-rqaaa-aaaaq-qaaba-cai icrc2_approve
-
-   This method requires arguments.
-   Enter a value for ApproveArgs
-   ✔ Enter optional field fee : opt nat? · yes
-     ✔ Enter a nat · 100_000_000
-   ✔ Enter optional field memo : opt vec nat8? · no
-   ✔ Enter optional field from_subaccount : opt vec nat8? · no
-   ✔ Enter optional field created_at_time : opt nat64? · no
-   Enter field amount : nat
-     ✔ Enter a nat · 1_000_000_000_000
-   ✔ Enter optional field expected_allowance : opt nat? · no
-   ✔ Enter optional field expires_at : opt nat64? · no
-   Enter field spender : Account
-     Enter a value for Account : record { owner : principal; subaccount : opt vec nat8 }
-     Enter field owner : principal
-       Auto-completions: accounts, accounts_staging, anonymous, cycleops, cycleops_aws_notification_poller, cycleops_staging, cycles_ledger, default, mock-client, nns-cycles-minting, nns-genesis-token, nns-governance, nns-ledger, nns-lifeline, nns-registry, nns-root, nns-sns-wasm, nnstest, topup_timer, transaction_history
-       ✔ Enter a principal · qc4nb-ciaaa-aaaap-aawqa-cai
-     ✔ Enter optional field subaccount : opt vec nat8? · no
-   Sending the following argument:
-   (
-     record {
-       fee = opt (100_000_000 : nat);
-       memo = null;
-       from_subaccount = null;
-       created_at_time = null;
-       amount = 50_000_000_000_000 : nat;
-       expected_allowance = null;
-       expires_at = null;
-       spender = record {
-         owner = principal "qc4nb-ciaaa-aaaap-aawqa-cai";
-         subaccount = null;
-       };
-     },
-   )
-   ```
-
-4. Finally, you will be asked to verify the CycleOps principal which has permission to spend your funds. Follow the prompts, which will provide a command for you to run that looks like this one:
-
-   ```bash
-   dfx canister --ic call qc4nb-ciaaa-aaaap-aawqa-cai verifyOwnershipOfCycleLedgerPrincipal '(record { cycleOpsCustomerPrincipal = principal "YOUR_CYCLEOPS_PRINCIPAL" })'
-   ```
-
-5. Success! 🎉
 
 # Thank you!
 

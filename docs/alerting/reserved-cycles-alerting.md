@@ -4,6 +4,9 @@ slug: reserved-cycles-alerting
 title: Reserved Cycles Alerting
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # How to Enable Reserved Cycles Limit Alerting for Your Canisters
 
 Did you know that your canister can suddenly stop saving new data if it's on a busy subnet and you haven't set it up to reserve enough cycles for new memory allocations?
@@ -101,8 +104,21 @@ A canister which hits its reserved cycles limit will no longer be able to commit
 
 This setting is managed on your canister in the same way as freezing threshold and other settings.
 
-To update your canister's reserved cycles limit through dfx, use the command:
+To update your canister's reserved cycles limit from the command line, choose your CLI:
 
+<Tabs groupId="cli">
+<TabItem value="icp-cli" label="ICP CLI">
+
+```bash
+icp canister settings update <canister_id> --reserved-cycles-limit <new_reserved_cycles_limit> -n ic
 ```
+
+</TabItem>
+<TabItem value="dfx" label="DFX">
+
+```bash
 dfx canister --ic update-settings --reserved-cycles-limit <new_reserved_cycles_limit> <canister>
 ```
+
+</TabItem>
+</Tabs>

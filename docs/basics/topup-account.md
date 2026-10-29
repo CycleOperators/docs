@@ -2,6 +2,9 @@
 sidebar_position: 2
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Top-up Account
 
 Your top-up account is how you pay for cycles top-ups for your canisters. The account currently supports ICP.
@@ -18,13 +21,24 @@ Your top-up account address can be found under Billing in the web app: [cycleops
 
 You can send ICP to your CycleOps top-up account address by transferring ICP from any account that you currently hold ICP.
 
-You can do this through:
+You can do this through your preferred wallet's GUI or from the command line:
 
-1.  The GUI of your preferred wallet
+<Tabs groupId="cli">
+<TabItem value="icp-cli" label="ICP CLI">
 
-or
+```bash
+icp token transfer <amount> <cycleops_account> -n ic
+```
 
-1.  via dfx → `dfx ledger transfer --amount <amount> --memo 0 <cycleops_account>`
+</TabItem>
+<TabItem value="dfx" label="DFX">
+
+```bash
+dfx ledger transfer --amount <amount> --memo 0 <cycleops_account>
+```
+
+</TabItem>
+</Tabs>
 
 ## Withdrawing Funds
 
